@@ -10,7 +10,8 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import { sideList } from "./SideList";
+import { SideList } from "./SideList";
+import { navBar } from "./SideBarStyles";
 
 //#endregion
 
@@ -25,7 +26,7 @@ export const Sidebar = () => {
     <>
       <CssBaseline />
 
-      <Box component="nav">
+      <Box component="nav" sx={navBar}>
         <AppBar position="static">
           <Toolbar>
             <IconButton onClick={toggleSlider}>
@@ -33,7 +34,7 @@ export const Sidebar = () => {
             </IconButton>
             <Typography>Melanie Nutricion App</Typography>
             <Drawer open={open} anchor="left" onClose={toggleSlider}>
-              {sideList()}
+              <SideList />
             </Drawer>
           </Toolbar>
         </AppBar>
