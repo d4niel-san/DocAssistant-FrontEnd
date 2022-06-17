@@ -11,11 +11,15 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { useContext } from "react";
+import { ApiContext } from "../../context/apiContext";
 import * as styles from "./AddPacientStyles";
 
 //#endregion
 
 export const AddPacient = () => {
+  const { createPacient } = useContext(ApiContext);
+
   const SignUpSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -27,6 +31,7 @@ export const AddPacient = () => {
       dni: data.get("dni"),
     };
     console.log(newUser);
+    createPacient(newUser);
   };
 
   return (
@@ -37,7 +42,7 @@ export const AddPacient = () => {
           <Avatar sx={styles.Avatar}>
             <PersonAddAlt color="primary" />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" sx={styles.AddPacientText}>
             Agregar Paciente
           </Typography>
           <Box

@@ -10,9 +10,14 @@ export const Context = ({ children }) => {
   const [showNavBar, setShowNavBar] = useState(true);
   let navigate = useNavigate();
 
+  const createPacient = (pacient) => {
+    //validatePacient(pacient);
+  };
+
   return (
     <ApiContext.Provider
       value={{
+        createPacient,
         isUserLogged,
         setIsUserLogged,
         userLogged,

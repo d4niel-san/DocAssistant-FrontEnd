@@ -35,4 +35,16 @@ const background = {
   height: "100vh",
 };
 
-export { Avatar, suscriptionTextSize, Box, Button, Container, background };
+const AddPacientText = {
+  color: "secondary.contrastText",
+};
+
+export {
+  AddPacientText,
+  Avatar,
+  suscriptionTextSize,
+  Box,
+  Button,
+  Container,
+  background,
+};

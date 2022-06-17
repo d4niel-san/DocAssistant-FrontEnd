@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { SideList } from "./SideList";
-import { navBar } from "./SideBarStyles";
+import { navBar, mouseStates } from "./SideBarStyles";
 
 //#endregion
 
@@ -29,7 +29,7 @@ export const Sidebar = () => {
       <Box component="nav" sx={navBar}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton onClick={toggleSlider}>
+            <IconButton onClick={toggleSlider} sx={mouseStates}>
               <Menu />
             </IconButton>
             <Typography>Melanie Nutricion App</Typography>

@@ -3,14 +3,18 @@ import { blue, grey, teal } from "@mui/material/colors";
 import { alpha } from "@mui/material";
 
 const generalTheme = createTheme({
+  //shadows: ["0px 2px 1px -1px rgba(0,0,0,0.5)"],
+
   palette: {
     primary: {
-      main: teal[300],
-      contrastText: grey[100],
+      main: "#008a7a",
+      dark: "#00665a",
+      light: "#00b8a2",
+      contrastText: "rgba(255,255,255,0.7)",
     },
     secondary: {
-      main: teal[900],
-      contrastText: grey[900],
+      main: "#FFE8DA",
+      contrastText: "#00665a", //"#376996",
     },
     info: {
       main: alpha(blue[500], 0.9),
@@ -22,7 +26,7 @@ const generalTheme = createTheme({
       primary: grey[800],
     },
     backWhite: {
-      main: "#fff",
+      main: "#FFE8DA",
     },
   },
 });

@@ -11,10 +11,11 @@ const avatar = {
   padding: "1rem",
   width: "50%",
   height: "20%",
+  filter: "invert(1)",
 };
 
 const listItem = {
-  color: "secondary.main",
+  color: "primary.contrastText",
 };
 
 const navBar = {
@@ -24,4 +25,9 @@ const navBar = {
   zIndex: "100",
 };
 
-export { menuSliderContainer, avatar, listItem, navBar };
+const mouseStates = {
+  "&:hover": { backgroundColor: "primary.dark" },
+  "&:active": { backgroundColor: "primary.light" },
+};
+
+export { menuSliderContainer, avatar, listItem, navBar, mouseStates };

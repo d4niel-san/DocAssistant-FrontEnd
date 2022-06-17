@@ -24,7 +24,7 @@ export const SideList = () => (
       <Divider />
       <List sx={styles.listItem}>
         {listItems.map((listItem, index) => (
-          <ListItem button key={index}>
+          <ListItem button key={index} sx={styles.mouseStates}>
             <ListItemIcon>{listItem.listIcon}</ListItemIcon>
             <ListItemText primary={listItem.listText} />
           </ListItem>
