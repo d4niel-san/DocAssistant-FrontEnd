@@ -1,9 +1,19 @@
-import { AddCard, Ballot, List, PersonAddAlt } from "@mui/icons-material";
+import {
+  AddCard,
+  Ballot,
+  List,
+  PersonAddAlt1,
+  PersonSearch,
+} from "@mui/icons-material";
 
 export const listItems = [
   {
-    listIcon: <PersonAddAlt />,
+    listIcon: <PersonAddAlt1 />,
     listText: "Agregar Paciente",
+  },
+  {
+    listIcon: <PersonSearch />,
+    listText: "Consultar Datos Paciente",
   },
   {
     listIcon: <AddCard />,

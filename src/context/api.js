@@ -1,15 +1,15 @@
-import axios from 'axios';
+import axios from "axios";
 
-const apiBaseUrl = 'http://localhost:5000';
+const apiBaseUrl = "http://localhost:4000";
 const apiTimeout = 0;
 
 const api = axios.create({
   baseURL: apiBaseUrl,
   timeout: apiTimeout,
   headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
 });
 
 export default api;

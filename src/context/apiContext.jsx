@@ -10,9 +10,17 @@ export const Context = ({ children }) => {
   const [showNavBar, setShowNavBar] = useState(true);
   let navigate = useNavigate();
 
-  const createPacient = (pacient) => {
-    //validatePacient(pacient);
-  };
+  async function createPacient(pacient) {
+    await api
+      .post("/pacientes", pacient)
+      .then((response) => {
+        if (response) console.log("Paciente Agregado a BBDD");
+        //navigate('/signIn', { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   return (
     <ApiContext.Provider
