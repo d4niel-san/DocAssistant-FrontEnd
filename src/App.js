@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import { AddPacient } from "./components/AddPacient/AddPacient";
 import { Calendar } from "./components/Calendar/Calendar";
+import { QueryPacient } from "./components/QueryPacient/QueryPacient";
 import { Sidebar } from "./components/Sidebar/Sidebar";
 import { SignIn } from "./components/SignIn/SignIn";
 import { ApiContext } from "./context/apiContext";
@@ -23,6 +24,7 @@ const App = () => {
         <Routes>
           <Route path="/sidebar" element={<Sidebar />} />
           <Route path="/addpacient" element={<AddPacient />} />
+          <Route path="/queryPacient" element={<QueryPacient />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/" element={<SignIn />} />
           <Route path="/*" element={<SignIn />} />
