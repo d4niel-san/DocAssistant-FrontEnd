@@ -1,6 +1,6 @@
 //#region imports
 
-import { PersonAddAlt } from "@mui/icons-material";
+import { PersonAddAlt, PersonSearch } from "@mui/icons-material";
 import {
   Avatar,
   Box,
@@ -8,10 +8,11 @@ import {
   Container,
   CssBaseline,
   Grid,
+  MenuItem,
   TextField,
   Typography,
 } from "@mui/material";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ApiContext } from "../../context/apiContext";
 import * as styles from "./QueryPacientStyles";
 
@@ -34,13 +35,43 @@ export const QueryPacient = () => {
     createPacient(newUser);
   };
 
+  const filters = [
+    {
+      value: "cell",
+      label: "Celular",
+      data: "Numero",
+      type: "tel",
+    },
+    {
+      value: "dni",
+      label: "DNI",
+      data: "Numero",
+      type: "tel",
+    },
+    {
+      value: "lastName",
+      label: "Apellido",
+      data: "Texto",
+      type: "text",
+    },
+  ];
+
+  const [filter, setFilter] = useState(filters[1]);
+
+  const handleChange = (event) => {
+    const result = filters.find(
+      (element) => element.value === event.target.value
+    );
+    setFilter(result);
+  };
+
   return (
     <Grid item xs={false} sm={4} md={7} sx={styles.background}>
       <Container component="main" maxWidth="sm" sx={styles.Container}>
         <CssBaseline />
         <Box sx={styles.Box}>
           <Avatar sx={styles.Avatar}>
-            <PersonAddAlt color="primary" />
+            <PersonSearch color="primary" />
           </Avatar>
           <Typography component="h1" variant="h5" sx={styles.AddPacientText}>
             Consultar Datos Paciente
@@ -54,60 +85,29 @@ export const QueryPacient = () => {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
+                  id="filter"
                   fullWidth
-                  id="firstName"
-                  label="Nombre"
-                  autoFocus
+                  select
+                  label="Buscar por"
+                  value={filter.value}
+                  onChange={handleChange}
                   size="small"
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Apellido"
-                  name="lastName"
-                  autoComplete="family-name"
-                  size="small"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Correo Electronico"
-                  name="email"
-                  autoComplete="email"
-                  size="small"
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  name="cell"
-                  label="Nro. Celular"
-                  type="tel"
-                  id="cell"
-                  autoComplete="Celular"
-                  size="small"
-                />
+                >
+                  {filters.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
               </Grid>
 
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
-                  name="dni"
-                  label="dni"
-                  type="tel"
+                  label={filter.data}
+                  type={filter.type}
                   id="dni"
-                  autoComplete="Nro. Documento"
                   size="small"
                 />
               </Grid>
@@ -118,7 +118,7 @@ export const QueryPacient = () => {
               variant="contained"
               sx={styles.Button}
             >
-              Registrar Paciente
+              Consultar Paciente
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item sx={{ marginBottom: "0.5rem" }}></Grid>
