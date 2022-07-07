@@ -1,6 +1,6 @@
 //#region imports
 
-import { PersonAddAlt, PersonSearch } from "@mui/icons-material";
+import { PersonSearch } from "@mui/icons-material";
 import {
   Avatar,
   Box,
@@ -14,47 +14,36 @@ import {
 } from "@mui/material";
 import { useContext, useState } from "react";
 import { ApiContext } from "../../context/apiContext";
+import { filters } from "./filters";
 import * as styles from "./QueryPacientStyles";
 
 //#endregion
 
 export const QueryPacient = () => {
-  const { createPacient } = useContext(ApiContext);
+  const { searchPacient } = useContext(ApiContext);
 
-  const SignUpSubmit = (event) => {
+  const SearchSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const newUser = {
-      firstName: data.get("firstName"),
-      lastName: data.get("lastName"),
-      email: data.get("email"),
-      cell: data.get("cell"),
-      dni: data.get("dni"),
+    const searchUser = {
+      filter: data.get("filter"),
+      data: data.get("data"),
     };
-    console.log(newUser);
-    createPacient(newUser);
+    switch (data.get("filter")) {
+      case "lastName":
+        console.log("Apellido: " + data.get("data"));
+        break;
+      case "dni":
+        console.log("DNI: " + data.get("data"));
+        break;
+      case "cell":
+        console.log("Celular: " + data.get("data"));
+        break;
+      default:
+        console.log("Defaultee");
+    }
+    searchPacient(searchUser);
   };
-
-  const filters = [
-    {
-      value: "cell",
-      label: "Celular",
-      data: "Numero",
-      type: "tel",
-    },
-    {
-      value: "dni",
-      label: "DNI",
-      data: "Numero",
-      type: "tel",
-    },
-    {
-      value: "lastName",
-      label: "Apellido",
-      data: "Texto",
-      type: "text",
-    },
-  ];
 
   const [filter, setFilter] = useState(filters[1]);
 
@@ -79,13 +68,14 @@ export const QueryPacient = () => {
           <Box
             component="form"
             noValidate
-            onSubmit={SignUpSubmit}
+            onSubmit={SearchSubmit}
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
                   id="filter"
+                  name="filter"
                   fullWidth
                   select
                   label="Buscar por"
@@ -107,8 +97,9 @@ export const QueryPacient = () => {
                   fullWidth
                   label={filter.data}
                   type={filter.type}
-                  id="dni"
                   size="small"
+                  id="dni"
+                  name="data"
                 />
               </Grid>
             </Grid>

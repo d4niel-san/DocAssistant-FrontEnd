@@ -14,12 +14,16 @@ export const Context = ({ children }) => {
     await api
       .post("/pacientes", pacient)
       .then((response) => {
-        if (response) console.log("Paciente Agregado a BBDD");
+        if (response) alert("Paciente Agregado a la base de datos");
         //navigate('/signIn', { replace: true });
       })
       .catch((error) => {
         console.log(error);
       });
+  }
+
+  async function searchPacient(patient) {
+    await api;
   }
 
   return (
