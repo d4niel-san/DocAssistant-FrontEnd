@@ -23,13 +23,24 @@ export const Context = ({ children }) => {
   }
 
   async function searchPacient(patient) {
-    await api;
+    console.log(patient);
+    await api
+      .post("/getPaciente", patient)
+      .then((response) => {
+        if (response) {
+          console.log("Paciente encontrado: ", response.data);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
     <ApiContext.Provider
       value={{
         createPacient,
+        searchPacient,
         isUserLogged,
         setIsUserLogged,
         userLogged,

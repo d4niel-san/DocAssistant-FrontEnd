@@ -1,4 +1,4 @@
-//#region Imports
+// #region Imports
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
 import { useContext } from "react";
