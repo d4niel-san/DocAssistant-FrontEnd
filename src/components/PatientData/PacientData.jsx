@@ -5,8 +5,8 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ApiContext } from "../../context/apiContext";
-import { ColumnaDos } from "./ColumnaDos";
-import { ColumnaUno } from "./ColumnaUno";
+import { ColumnaDos } from "./ColumnaDos/ColumnaDos";
+import { ColumnaUno } from "./ColumnaUno/ColumnaUno";
 import * as styles from "./PacientDataStyles";
 
 // #endregion
