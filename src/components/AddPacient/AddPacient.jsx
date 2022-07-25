@@ -26,6 +26,7 @@ export const AddPacient = () => {
     const newUser = {
       firstName: data.get("firstName"),
       lastName: data.get("lastName"),
+      ocupacion: data.get("ocupacion"),
       email: data.get("email"),
       cell: data.get("cell"),
       dni: data.get("dni"),
@@ -71,6 +72,17 @@ export const AddPacient = () => {
                   id="lastName"
                   label="Apellido"
                   name="lastName"
+                  autoComplete="family-name"
+                  size="small"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="ocupacion"
+                  label="Ocupacion"
+                  name="ocupacion"
                   autoComplete="family-name"
                   size="small"
                 />

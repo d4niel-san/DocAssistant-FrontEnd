@@ -6,7 +6,7 @@ export const ApiContext = createContext(0);
 
 export const Context = ({ children }) => {
   const [isUserLogged, setIsUserLogged] = useState(false);
-  const [userLogged, setUserLogged] = useState();
+  const [pacienteBuscado, setPacienteBuscado] = useState();
   const [showNavBar, setShowNavBar] = useState(true);
   let navigate = useNavigate();
 
@@ -28,7 +28,9 @@ export const Context = ({ children }) => {
       .post("/getPaciente", patient)
       .then((response) => {
         if (response) {
-          console.log("Paciente encontrado: ", response.data);
+          setPacienteBuscado(response.data[0]);
+          console.log("Paciente encontrado: ", response.data[0]);
+          navigate("/Pacient", { replace: true });
         }
       })
       .catch((error) => {
@@ -43,8 +45,8 @@ export const Context = ({ children }) => {
         searchPacient,
         isUserLogged,
         setIsUserLogged,
-        userLogged,
-        setUserLogged,
+        pacienteBuscado,
+        setPacienteBuscado,
         showNavBar,
         setShowNavBar,
       }}
