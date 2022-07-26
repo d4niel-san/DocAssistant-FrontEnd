@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import { useContext } from "react";
 import { ApiContext } from "../../../context/apiContext";
 import * as styles from "./HistoriaClinicaStyles";
+import * as placeHolder from "./../Placeholders";
 
 export const HistoriaClinica = () => {
   const { pacienteBuscado } = useContext(ApiContext);
@@ -13,16 +14,21 @@ export const HistoriaClinica = () => {
           <Typography sx={styles.titulo}>Historia Clinica</Typography>
         </div>
         <div style={styles.div2}>
-          <Typography align="center" sx={styles.historiaClinicaId}>
-            Nro.:{" "}
+          <Typography display="inline" sx={styles.historiaClinicaId}>
+            Nro.:
           </Typography>
-          <Typography align="center" sx={styles.historiaClinicaIdData}>
+          <Typography display="inline" sx={styles.historiaClinicaIdData}>
             {pacienteBuscado.Id}
           </Typography>
         </div>
-        <hr style={styles.hr}></hr>
-        <br />
       </div>
+      <hr style={styles.hr} />
+
+      <Typography>{placeHolder._fechaUno}</Typography>
+      <Typography>{placeHolder._notaUno}</Typography>
+      <br />
+      <Typography>{placeHolder._fechaDos}</Typography>
+      <Typography>{placeHolder._notaDos}</Typography>
     </>
   );
 };

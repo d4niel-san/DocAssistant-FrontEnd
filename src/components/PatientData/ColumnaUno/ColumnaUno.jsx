@@ -7,7 +7,11 @@ export const ColumnaUno = () => {
       <img style={styles.avatar} src="https://via.placeholder.com/180" alt="" />
       <div style={styles.gridContainer}>
         <div style={styles.gridUno}>
-          <Typography align="center" sx={styles.typoPrimary}>
+          <Typography
+            fontFamily="roboto"
+            align="center"
+            sx={styles.typoPrimary}
+          >
             Ultimas
           </Typography>
           <Typography align="center" sx={styles.typoPrimary}>

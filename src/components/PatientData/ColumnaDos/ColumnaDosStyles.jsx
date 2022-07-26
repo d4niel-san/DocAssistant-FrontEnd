@@ -6,14 +6,15 @@ const columnaDos = {
 
 const nombre = {
   fontSize: 34,
-  fontFamily: "Helvetica Neue",
+  //fontFamily: "Helvetica Neue",
   fontWeight: 700,
   display: "inline",
   color: "rgb(221, 108, 142)",
 };
 
 const apellido = {
-  fontFamily: "Helvetica Neue",
+  //fontFamily: "Helvetica Neue",
+  fontWeight: 300,
   fontSize: 34,
   display: "inline",
   color: "rgb(221, 108, 142)",

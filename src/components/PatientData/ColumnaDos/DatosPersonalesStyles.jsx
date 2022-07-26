@@ -1,6 +1,6 @@
 const titulo = {
   //fontFamily: "Helvetica Neue",
-  fontWeight: 900,
+  fontWeight: 700,
   fontSize: 20,
 };
 

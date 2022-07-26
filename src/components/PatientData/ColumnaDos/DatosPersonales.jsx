@@ -1,8 +1,7 @@
 import { Typography } from "@mui/material";
-import * as styles from "./DatosPersonalesStyles";
-import * as placeHolder from "./../Placeholders";
 import { useContext } from "react";
 import { ApiContext } from "../../../context/apiContext";
+import * as styles from "./DatosPersonalesStyles";
 
 export const DatosPersonales = () => {
   const { pacienteBuscado } = useContext(ApiContext);
@@ -10,7 +9,7 @@ export const DatosPersonales = () => {
   return (
     <>
       <Typography sx={styles.titulo}>Datos Personales</Typography>
-      <hr style={styles.hr}></hr>
+      <hr style={styles.hr} />
       <br />
       <div style={styles.grid}>
         <div styles={styles.div1}>
@@ -23,7 +22,6 @@ export const DatosPersonales = () => {
           <Typography style={styles.gridLabel}>Celular: </Typography>
         </div>
         <div styles={styles.div4}>
-          {" "}
           <Typography align="right">{pacienteBuscado.Cell}</Typography>
         </div>
         <div styles={styles.div5}>

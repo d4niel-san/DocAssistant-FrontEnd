@@ -20,11 +20,6 @@ export const ColumnaDos = () => {
       <DatosPersonales />
       <br />
       <HistoriaClinica />
-      <Typography>{placeHolder._historiaClinica}</Typography>
-      <Typography>{placeHolder._notaUno}</Typography>
-      <Typography>{placeHolder._fechaUno}</Typography>
-      <Typography>{placeHolder._fechaDos}</Typography>
-      <Typography>{placeHolder._notaDos}</Typography>
     </div>
   );
 };

@@ -7,7 +7,8 @@ const avatar = {
   zIndex: 1,
   display: "flex",
   justifyContent: "center",
-  width: "80%",
+  width: "100%",
+  maxWidth: "250px",
   left: "10px",
   margin: "0 auto",
 };
@@ -17,7 +18,7 @@ const removeBullet = { listStyleType: "none" };
 const columnaUno = {
   flexBasis: "40%",
   position: "relative",
-  maxWidth: "275PX",
+  maxWidth: "250PX",
 };
 
 const gridContainer = {

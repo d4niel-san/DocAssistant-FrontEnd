@@ -23,13 +23,12 @@ export const Context = ({ children }) => {
   }
 
   async function searchPacient(patient) {
-    console.log(patient);
     await api
       .post("/getPaciente", patient)
       .then((response) => {
         if (response) {
-          setPacienteBuscado(response.data[0]);
-          console.log("Paciente encontrado: ", response.data[0]);
+          console.log("Paciente encontrado: ", response.data);
+          setPacienteBuscado(response.data);
           navigate("/Pacient", { replace: true });
         }
       })

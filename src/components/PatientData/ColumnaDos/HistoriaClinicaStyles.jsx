@@ -1,28 +1,29 @@
 const titulo = {
   //fontFamily: "Helvetica Neue",
-  fontWeight: 900,
+  fontWeight: 700,
   fontSize: 20,
 };
 
 const colorSecundario = "#F6E1E6";
 
 const historiaClinicaId = {
-  fontWeight: 900,
+  fontWeight: 700,
   fontSize: 20,
   color: "rgb(221, 108, 142)",
-  //display: "inline",
+  marginRight: "5px",
 };
 
 const historiaClinicaIdData = {
-  //fontWeight: 900,
+  fontWeight: 500,
   //display: "inline",
   fontSize: 20,
-  color: colorSecundario,
+  color: "RGB(227, 122, 142)",
 };
 
 const hr = {
   height: "3px",
   borderWidth: 0,
+  color: colorSecundario,
   backgroundColor: colorSecundario,
 };
 
@@ -35,7 +36,12 @@ const grid = {
 };
 
 const div1 = { gridArea: 1 / 1 / 2 / 2 };
-const div2 = { gridArea: 1 / 2 / 2 / 3 };
+
+const div2 = {
+  gridArea: 1 / 2 / 2 / 3,
+  display: "flex",
+  justifyContent: "right",
+};
 
 export {
   historiaClinicaId,

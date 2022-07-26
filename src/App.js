@@ -11,6 +11,7 @@ import { Sidebar } from "./components/Sidebar/Sidebar";
 import { SignIn } from "./components/SignIn/SignIn";
 import { ApiContext } from "./context/apiContext";
 import generalTheme from "./theme/generalTheme";
+import "./App.css";
 
 //#endregion
 
