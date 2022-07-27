@@ -1,7 +1,6 @@
 import { Typography } from "@mui/material";
 import { useContext } from "react";
 import { ApiContext } from "../../../context/apiContext";
-import * as placeHolder from "./../Placeholders";
 import * as styles from "./ColumnaDosStyles";
 import { DatosPersonales } from "./DatosPersonales";
 import { HistoriaClinica } from "./HistoriaClinica";
