@@ -1,7 +1,6 @@
 import { Typography } from "@mui/material";
 import { useContext } from "react";
 import { ApiContext } from "../../../context/apiContext";
-import * as placeHolder from "./../Placeholders";
 import * as styles from "./HistoriaClinicaStyles";
 
 export const HistoriaClinica = () => {
@@ -10,11 +9,11 @@ export const HistoriaClinica = () => {
   const ListadoHistoriaClinica = () => {
     if (!pacienteBuscado.consultas) return null;
     return pacienteBuscado.consultas.map((element) => (
-      <>
-        <Typography key={element.Id}>{element.date}</Typography>
+      <div key={element.Id}>
+        <Typography>{element.date}</Typography>
         <Typography>{element.register}</Typography>
         <br />
-      </>
+      </div>
     ));
   };
 

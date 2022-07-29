@@ -7,6 +7,7 @@ export const ApiContext = createContext(0);
 export const Context = ({ children }) => {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [pacienteBuscado, setPacienteBuscado] = useState();
+  //const [consultasPaciente, setconsultasPaciente] = useState();
   const [showNavBar, setShowNavBar] = useState(true);
   let navigate = useNavigate();
 
@@ -15,7 +16,6 @@ export const Context = ({ children }) => {
       .post("/pacientes", pacient)
       .then((response) => {
         if (response) alert("Paciente Agregado a la base de datos");
-        //navigate('/signIn', { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -29,6 +29,21 @@ export const Context = ({ children }) => {
         if (response) {
           console.log("Paciente encontrado: ", response.data);
           setPacienteBuscado(response.data);
+          consultasPacient(response.data.Id);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  async function consultasPacient(patientId) {
+    await api
+      .post("/consultasPaciente", { patientId })
+      .then((response) => {
+        if (response) {
+          console.log("Consultas Paciente: ", response.data);
+          //setconsultasPaciente(response.data);
           navigate("/Pacient", { replace: true });
         }
       })
@@ -41,6 +56,7 @@ export const Context = ({ children }) => {
     <ApiContext.Provider
       value={{
         createPacient,
+        consultasPacient,
         searchPacient,
         isUserLogged,
         setIsUserLogged,
@@ -48,6 +64,8 @@ export const Context = ({ children }) => {
         setPacienteBuscado,
         showNavBar,
         setShowNavBar,
+        //consultasPaciente,
+        //setconsultasPaciente,
       }}
     >
       {children}

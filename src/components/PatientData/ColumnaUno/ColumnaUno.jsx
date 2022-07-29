@@ -1,7 +1,20 @@
 import { Checkbox, Typography } from "@mui/material";
+import { useContext } from "react";
+import { ApiContext } from "../../../context/apiContext";
 import * as styles from "./ColumnaUnoStyles";
 
 export const ColumnaUno = () => {
+  const { pacienteBuscado } = useContext(ApiContext);
+
+  const ListadoConsultas = () => {
+    if (!pacienteBuscado.consultas) return null;
+    return pacienteBuscado.consultas.map((element) => (
+      <li key={element.Id} style={styles.removeBullet}>
+        <Typography sx={styles.typoNormal}>{element.date}</Typography>
+      </li>
+    ));
+  };
+
   return (
     <div style={styles.columnaUno}>
       <img style={styles.avatar} src="https://via.placeholder.com/180" alt="" />
@@ -25,15 +38,7 @@ export const ColumnaUno = () => {
         </div>
         <div style={styles.gridTres}>
           <ul style={styles.ulStyle}>
-            <li style={styles.removeBullet}>
-              <Typography sx={styles.typoNormal}>11/22/33</Typography>
-            </li>
-            <li style={styles.removeBullet}>
-              <Typography sx={styles.typoNormal}>22/33/44</Typography>
-            </li>
-            <li style={styles.removeBullet}>
-              <Typography sx={styles.typoNormal}>33/44/55</Typography>
-            </li>
+            <ListadoConsultas />
           </ul>
         </div>
         <div style={styles.gridCuatro}>
