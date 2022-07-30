@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import { useContext } from "react";
 import { ApiContext } from "../../../context/apiContext";
+import AddButton from "../AddButton";
 import * as styles from "./HistoriaClinicaStyles";
 
 export const HistoriaClinica = () => {
@@ -35,6 +36,7 @@ export const HistoriaClinica = () => {
       <hr style={styles.hr} />
       <div>
         <ListadoHistoriaClinica />
+        <AddButton texto="hey man" backgroundColor="white" />
       </div>
     </>
   );

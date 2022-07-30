@@ -36,12 +36,14 @@ const gridContainer = {
 };
 
 const gridUno = {
-  gridArea: "1 / 1 / 1 / 1",
+  //gridArea: "1 / 1 / 1 / 1",
+  gridArea: "1 / 1 / 2 / 2",
   borderRight: "2px solid white",
   height: "50px",
 };
 
 const gridDos = {
+  //gridArea: "1 / 2 / 2 / 3",
   gridArea: "1 / 2 / 2 / 3",
   justifyContent: "center",
   display: "flex",
@@ -49,19 +51,29 @@ const gridDos = {
 };
 const gridTres = {
   borderTop: "2px solid white",
+  //gridArea: "2 / 1 / 3 / 2",
   gridArea: "2 / 1 / 3 / 2",
 };
 const gridCuatro = {
+  //gridArea: "2 / 2 / 3 / 3",
   gridArea: "2 / 2 / 3 / 3",
   display: "flex",
   flexDirection: "column",
   borderTop: "2px solid white",
 };
+
+const gridCinco = {
+  gridArea: "3 / 1 / 4 / 3",
+  display: "flex",
+  justifyContent: "center",
+};
+
 const ulStyle = {
   align: "center",
   padding: 0,
   margin: 0,
 };
+
 const typoPrimary = {
   color: "rgb(221, 108, 142)",
   fontWeight: "bold",
@@ -94,4 +106,5 @@ export {
   gridDos,
   gridTres,
   gridCuatro,
+  gridCinco,
 };

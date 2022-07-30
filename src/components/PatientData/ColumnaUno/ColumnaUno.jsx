@@ -1,6 +1,7 @@
 import { Checkbox, Typography } from "@mui/material";
 import { useContext } from "react";
 import { ApiContext } from "../../../context/apiContext";
+import AddButton from "../AddButton";
 import * as styles from "./ColumnaUnoStyles";
 
 export const ColumnaUno = () => {
@@ -53,6 +54,10 @@ export const ColumnaUno = () => {
         </div>
         <div style={styles.gridCuatro}>
           <Checklist />
+        </div>
+
+        <div style={styles.gridCinco}>
+          <AddButton texto="Agregar Pago" />
         </div>
       </div>
     </div>
