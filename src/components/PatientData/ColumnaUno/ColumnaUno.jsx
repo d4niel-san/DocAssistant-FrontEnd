@@ -4,13 +4,23 @@ import { ApiContext } from "../../../context/apiContext";
 import * as styles from "./ColumnaUnoStyles";
 
 export const ColumnaUno = () => {
-  const { pacienteBuscado } = useContext(ApiContext);
+  const { consultasFiltradas } = useContext(ApiContext);
 
   const ListadoConsultas = () => {
-    if (!pacienteBuscado.consultas) return null;
-    return pacienteBuscado.consultas.map((element) => (
+    if (!consultasFiltradas) return null;
+    console.log("las consultas a mostrar: ", consultasFiltradas);
+    return consultasFiltradas.map((element) => (
       <li key={element.Id} style={styles.removeBullet}>
         <Typography sx={styles.typoNormal}>{element.date}</Typography>
+      </li>
+    ));
+  };
+
+  const Checklist = () => {
+    if (!consultasFiltradas) return null;
+    return consultasFiltradas.map((element) => (
+      <li key={element.Id} style={styles.checkBox}>
+        <Checkbox disabled checked={element.payed} />
       </li>
     ));
   };
@@ -42,9 +52,7 @@ export const ColumnaUno = () => {
           </ul>
         </div>
         <div style={styles.gridCuatro}>
-          <Checkbox sx={styles.checkBox} />
-          <Checkbox sx={styles.checkBox} />
-          <Checkbox sx={styles.checkBox} />
+          <Checklist />
         </div>
       </div>
     </div>

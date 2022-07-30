@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { filtrarConsultas } from "../components/PatientData/ColumnaUno/ColumnaUnoServices";
 import api from "./api";
 
 export const ApiContext = createContext(0);
@@ -7,7 +8,8 @@ export const ApiContext = createContext(0);
 export const Context = ({ children }) => {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [pacienteBuscado, setPacienteBuscado] = useState();
-  //const [consultasPaciente, setconsultasPaciente] = useState();
+  const [consultasFiltradas, setconsultasFiltradas] = useState();
+
   const [showNavBar, setShowNavBar] = useState(true);
   let navigate = useNavigate();
 
@@ -29,22 +31,8 @@ export const Context = ({ children }) => {
         if (response) {
           console.log("Paciente encontrado: ", response.data);
           setPacienteBuscado(response.data);
-          consultasPacient(response.data.Id);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  async function consultasPacient(patientId) {
-    await api
-      .post("/consultasPaciente", { patientId })
-      .then((response) => {
-        if (response) {
-          console.log("Consultas Paciente: ", response.data);
-          //setconsultasPaciente(response.data);
           navigate("/Pacient", { replace: true });
+          setconsultasFiltradas(filtrarConsultas(response.data.consultas));
         }
       })
       .catch((error) => {
@@ -56,7 +44,8 @@ export const Context = ({ children }) => {
     <ApiContext.Provider
       value={{
         createPacient,
-        consultasPacient,
+        consultasFiltradas,
+        setconsultasFiltradas,
         searchPacient,
         isUserLogged,
         setIsUserLogged,
@@ -64,8 +53,6 @@ export const Context = ({ children }) => {
         setPacienteBuscado,
         showNavBar,
         setShowNavBar,
-        //consultasPaciente,
-        //setconsultasPaciente,
       }}
     >
       {children}

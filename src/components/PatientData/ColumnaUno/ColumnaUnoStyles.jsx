@@ -72,8 +72,11 @@ const typoNormal = {
 };
 
 const checkBox = {
+  display: "flex",
   align: "center",
+  justifyContent: "center",
   color: pink[800],
+  listStyleType: "none",
   "&.Mui-checked": {
     color: pink[600],
   },
