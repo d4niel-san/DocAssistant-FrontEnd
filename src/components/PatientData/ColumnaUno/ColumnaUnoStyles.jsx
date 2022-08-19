@@ -2,70 +2,78 @@ import { pink } from "@mui/material/colors";
 
 const colorSecundario = "#F6E1E6";
 
-const avatar = {
-  position: "relative",
-  zIndex: 1,
-  display: "flex",
-  justifyContent: "center",
-  width: "100%",
-  maxWidth: "250px",
-  left: "10px",
-  margin: "0 auto",
-};
-
 const removeBullet = { listStyleType: "none" };
 
 const columnaUno = {
   flexBasis: "40%",
   position: "relative",
   maxWidth: "250PX",
+  alignSelf: "flex-start",
+  marginTop: "10px",
+  backgroundColor: colorSecundario,
 };
 
 const gridContainer = {
-  bottom: "110px",
+//  bottom: "120px",
   position: "relative",
-  paddingTop: "120px",
   paddingBottom: "100px",
-  backgroundColor: colorSecundario,
   display: "grid",
-  gridTemplateColumns: "70% 30%",
+  gridTemplateColumns: "40% 40% 20%",
   gridcemplateRows: "20% 80%",
   gridcolumnGap: "0px",
   gridbowGap: "0px",
   rowGap: "2px",
 };
 
-const gridUno = {
-  //gridArea: "1 / 1 / 1 / 1",
+const gridA = {
   gridArea: "1 / 1 / 2 / 2",
-  borderRight: "2px solid white",
   height: "50px",
+  placeItems: "center",
+  display: "grid",
 };
 
-const gridDos = {
-  //gridArea: "1 / 2 / 2 / 3",
+const gridB = {
   gridArea: "1 / 2 / 2 / 3",
+  borderLeft: "2px solid white",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+};
+
+const gridC = {
+  borderLeft: "2px solid white",
+  gridArea: "1 / 3 / 2 / 4",
   justifyContent: "center",
   display: "flex",
   alignItems: "center",
 };
-const gridTres = {
+
+const gridD = {
   borderTop: "2px solid white",
-  //gridArea: "2 / 1 / 3 / 2",
   gridArea: "2 / 1 / 3 / 2",
+  justifyContent: "center",
+  alignItems: "center",
+  display: "flex",
 };
-const gridCuatro = {
-  //gridArea: "2 / 2 / 3 / 3",
+
+const gridE = {
   gridArea: "2 / 2 / 3 / 3",
   display: "flex",
   flexDirection: "column",
   borderTop: "2px solid white",
 };
 
-const gridCinco = {
-  gridArea: "3 / 1 / 4 / 3",
+const gridF = {
+  gridArea: "2 / 3 / 3 / 4",
   display: "flex",
-  justifyContent: "center",
+  flexDirection: "column",
+  borderTop: "2px solid white",
+};
+
+const gridG = {
+  gridArea: "3 / 1 / 4 / 4",
+  /*   display: "flex",
+  justifyContent: "center", */
 };
 
 const ulStyle = {
@@ -96,15 +104,16 @@ const checkBox = {
 export {
   checkBox,
   typoNormal,
-  avatar,
   gridContainer,
-  gridUno,
+  gridA,
+  gridB,
+  gridC,
+  gridD,
+  gridE,
+  gridF,
+  gridG,
   removeBullet,
   typoPrimary,
   ulStyle,
   columnaUno,
-  gridDos,
-  gridTres,
-  gridCuatro,
-  gridCinco,
 };

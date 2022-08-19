@@ -1,6 +1,6 @@
 // rgb: 248, 181, 197
 //#region Imports
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -26,6 +26,18 @@ export const PacientData = () => {
       <>
         <div style={{ height: "64px" }}></div>
         <div style={styles.background}>
+          <Container maxWidth="md" sx={styles.container}>
+            <Typography sx={styles.nombre}>
+              {pacienteBuscado.FirstName}
+            </Typography>
+            <Typography sx={styles.apellido}>
+              {pacienteBuscado.LastName}
+            </Typography>
+            <Typography sx={styles.ocupacion}>
+              Profesion: {pacienteBuscado.Ocupacion}
+            </Typography>
+          </Container>
+          
           <Container maxWidth="md" sx={styles.columnContainer}>
             <ColumnaUno />
             <ColumnaDos />

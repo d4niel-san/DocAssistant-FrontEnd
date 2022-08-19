@@ -28,35 +28,42 @@ export const ColumnaUno = () => {
 
   return (
     <div style={styles.columnaUno}>
-      <img style={styles.avatar} src="https://via.placeholder.com/180" alt="" />
       <div style={styles.gridContainer}>
-        <div style={styles.gridUno}>
+        <div style={styles.gridA}>
           <Typography
             fontFamily="roboto"
             align="center"
             sx={styles.typoPrimary}
           >
-            Ultimas
-          </Typography>
-          <Typography align="center" sx={styles.typoPrimary}>
-            Consultas
+            Ultimas Consultas
           </Typography>
         </div>
-        <div style={styles.gridDos}>
+
+        <div style={styles.gridB}>
+          <Typography align="center" sx={styles.typoPrimary}>
+            Importe
+          </Typography>
+        </div>
+
+        <div style={styles.gridC}>
           <Typography align="center" sx={styles.typoPrimary}>
             Paga
           </Typography>
         </div>
-        <div style={styles.gridTres}>
+
+        <div style={styles.gridD}>
           <ul style={styles.ulStyle}>
             <ListadoConsultas />
           </ul>
         </div>
-        <div style={styles.gridCuatro}>
+
+        <div style={styles.gridE}></div>
+
+        <div style={styles.gridF}>
           <Checklist />
         </div>
 
-        <div style={styles.gridCinco}>
+        <div style={styles.gridG}>
           <AddButton texto="Agregar Pago" />
         </div>
       </div>

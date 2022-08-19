@@ -11,8 +11,7 @@ export const HistoriaClinica = () => {
     if (!pacienteBuscado.consultas) return null;
     return pacienteBuscado.consultas.map((element) => (
       <div key={element.Id}>
-        <Typography>{element.date}</Typography>
-        <Typography>{element.register}</Typography>
+        <Typography>{element.date} : {element.register}</Typography>
         <br />
       </div>
     ));
@@ -36,7 +35,9 @@ export const HistoriaClinica = () => {
       <hr style={styles.hr} />
       <div>
         <ListadoHistoriaClinica />
-        <AddButton texto="hey man" backgroundColor="white" />
+      </div>
+      <div>
+        <AddButton texto="Nueva Historia" backgroundColor="white" />
       </div>
     </>
   );
