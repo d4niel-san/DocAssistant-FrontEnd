@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import { padding } from "@mui/system";
 import { useContext } from "react";
 import { ApiContext } from "../../../context/apiContext";
 import AddButton from "../AddButton";
@@ -10,12 +11,16 @@ export const HistoriaClinica = () => {
   const ListadoHistoriaClinica = () => {
     if (!pacienteBuscado.consultas) return null;
     return pacienteBuscado.consultas.map((element) => (
-      <div key={element.Id}>
+      <div key={element.Id} >
         <Typography>{element.date} : {element.register}</Typography>
         <br />
       </div>
     ));
   };
+
+const addHistoriaClinica = () => {
+  console.log("Clickee en Historia Clinica")
+}
 
   return (
     <>
@@ -33,11 +38,11 @@ export const HistoriaClinica = () => {
         </div>
       </div>
       <hr style={styles.hr} />
-      <div>
+      <div style={styles.border}>
         <ListadoHistoriaClinica />
       </div>
       <div>
-        <AddButton texto="Nueva Historia" backgroundColor="white" />
+        <AddButton texto="Nueva Historia" backgroundColor="white" function={addHistoriaClinica} />
       </div>
     </>
   );

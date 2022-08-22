@@ -1,8 +1,15 @@
 const titulo = {
-  //fontFamily: "Helvetica Neue",
   fontWeight: 700,
   fontSize: 20,
 };
+
+const border = {
+  borderWidth: "4px",
+  borderStyle: "solid",
+  borderColor: "#040303a1",
+  padding: "5px",
+  marginBottom: "15px",
+}
 
 const colorSecundario = "#F6E1E6";
 
@@ -14,8 +21,7 @@ const historiaClinicaId = {
 };
 
 const historiaClinicaIdData = {
-  fontWeight: 500,
-  //display: "inline",
+  fontWeight: 100,
   fontSize: 20,
   color: "RGB(227, 122, 142)",
 };
@@ -46,6 +52,7 @@ const div2 = {
 export {
   historiaClinicaId,
   historiaClinicaIdData,
+  border,
   titulo,
   hr,
   grid,

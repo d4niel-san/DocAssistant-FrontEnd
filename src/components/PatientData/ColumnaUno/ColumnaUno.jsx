@@ -7,6 +7,10 @@ import * as styles from "./ColumnaUnoStyles";
 export const ColumnaUno = () => {
   const { consultasFiltradas } = useContext(ApiContext);
 
+  const addHistoriaClinica = () => {
+    console.log("Clickee en Agregar Pago")
+  }
+
   const ListadoConsultas = () => {
     if (!consultasFiltradas) return null;
     console.log("las consultas a mostrar: ", consultasFiltradas);
@@ -21,7 +25,7 @@ export const ColumnaUno = () => {
     if (!consultasFiltradas) return null;
     return consultasFiltradas.map((element) => (
       <li key={element.Id} style={styles.checkBox}>
-        <Checkbox disabled checked={element.payed} />
+        <Checkbox disabled checked={element.payed} style={styles.checked} />
       </li>
     ));
   };
@@ -64,7 +68,7 @@ export const ColumnaUno = () => {
         </div>
 
         <div style={styles.gridG}>
-          <AddButton texto="Agregar Pago" />
+          <AddButton texto="Agregar Pago" function={addHistoriaClinica} />
         </div>
       </div>
     </div>

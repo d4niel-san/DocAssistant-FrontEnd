@@ -14,7 +14,7 @@ const columnaUno = {
 };
 
 const gridContainer = {
-//  bottom: "120px",
+  //  bottom: "120px",
   position: "relative",
   paddingBottom: "100px",
   display: "grid",
@@ -97,12 +97,15 @@ const checkBox = {
   justifyContent: "center",
   color: pink[800],
   listStyleType: "none",
-  "&.Mui-checked": {
-    color: pink[600],
-  },
 };
+
+const checked = {
+  color: pink[600],
+};
+
 export {
   checkBox,
+  checked,
   typoNormal,
   gridContainer,
   gridA,
