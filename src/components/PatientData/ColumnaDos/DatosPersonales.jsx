@@ -6,8 +6,10 @@ import * as styles from "./DatosPersonalesStyles";
 export const DatosPersonales = () => {
   const { pacienteBuscado } = useContext(ApiContext);
 
-  let dni = (pacienteBuscado.DNI).toString()
-  dni = dni.slice(0,2) + "." + dni.slice(2,5) + "." + dni.slice(5,8);
+  /* let dni = (pacienteBuscado.DNI).toString()
+  dni = dni.slice(0,2) + "." + dni.slice(2,5) + "." + dni.slice(5,8); */
+
+
 
   return (
     <>
@@ -19,7 +21,7 @@ export const DatosPersonales = () => {
           <Typography style={styles.gridLabel}>DNI:</Typography>
         </div>
         <div styles={styles.div2}>
-          <Typography align="right">{dni}</Typography>
+          <Typography align="right">{pacienteBuscado.DNI}</Typography>
         </div>
         <div styles={styles.div3}>
           <Typography style={styles.gridLabel}>Celular: </Typography>
