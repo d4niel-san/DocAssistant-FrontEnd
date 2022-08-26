@@ -7,9 +7,6 @@ import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 export const AddStory = ({ onClose, open, children }) => {
   if (!open) return null;
 
-  var rightNow = new Date();
-  var res = rightNow.toISOString().slice(0, 10);
-
   return ReactDom.createPortal(
     <>
       <div style={styles.overlay} />
@@ -34,7 +31,7 @@ export const AddStory = ({ onClose, open, children }) => {
                 focused
                 size="small"
                 type="date"
-                defaultValue={res}
+                defaultValue={new Date().toISOString().slice(0, 10)}
               />
             </Grid>
 
