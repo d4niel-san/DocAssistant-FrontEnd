@@ -1,26 +1,25 @@
 import { Typography } from "@mui/material";
-import { padding } from "@mui/system";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ApiContext } from "../../../context/apiContext";
 import AddButton from "../AddButton";
 import * as styles from "./HistoriaClinicaStyles";
+import { AddStory } from "./ModalWindows/AddStory";
 
 export const HistoriaClinica = () => {
   const { pacienteBuscado } = useContext(ApiContext);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const ListadoHistoriaClinica = () => {
     if (!pacienteBuscado.consultas) return null;
     return pacienteBuscado.consultas.map((element) => (
-      <div key={element.Id} >
-        <Typography>{element.date} : {element.register}</Typography>
+      <div key={element.Id}>
+        <Typography>
+          {element.date} : {element.register}
+        </Typography>
         <br />
       </div>
     ));
   };
-
-const addHistoriaClinica = () => {
-  console.log("Clickee en Historia Clinica")
-}
 
   return (
     <>
@@ -42,8 +41,13 @@ const addHistoriaClinica = () => {
         <ListadoHistoriaClinica />
       </div>
       <div>
-        <AddButton texto="Nueva Historia" backgroundColor="white" function={addHistoriaClinica} />
+        <AddButton
+          texto="Nueva Historia"
+          backgroundColor="white"
+          function={() => setModalIsOpen(!modalIsOpen)}
+        />
       </div>
+      <AddStory open={modalIsOpen} onClose={() => setModalIsOpen(false)} />
     </>
   );
 };
