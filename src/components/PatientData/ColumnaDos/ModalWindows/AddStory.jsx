@@ -7,24 +7,29 @@ import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 export const AddStory = ({ onClose, open, children }) => {
   if (!open) return null;
 
+  const SignUpTest = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const newHistory = {
+      date: data.get("date"),
+      historia: data.get("historia"),
+    };
+    console.log(newHistory);
+    //createPacient(newUser);
+  };
+
   return ReactDom.createPortal(
     <>
       <div style={styles.overlay} />
       <div style={styles.modal}>
         <Typography align="center">Agregar Historia Clinica</Typography>
         {children}
-        <Box
-          component="form"
-          noValidate
-          //onSubmit={SignUpSubmit}
-          sx={{ mt: 3 }}
-        >
+        <Box component="form" noValidate onSubmit={SignUpTest} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={6} sm={6}>
               <TextField
                 name="date"
                 required
-                hiddenLabel="true"
                 fullWidth
                 id="date"
                 label="Fecha de Consulta"

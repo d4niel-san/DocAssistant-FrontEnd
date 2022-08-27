@@ -57,6 +57,8 @@ const gridD = {
 };
 
 const gridE = {
+  justifyContent: "center",
+  alignItems: "center",
   gridArea: "2 / 2 / 3 / 3",
   display: "flex",
   flexDirection: "column",

@@ -1,33 +1,13 @@
-import { Checkbox, Typography } from "@mui/material";
-import { useContext } from "react";
-import { ApiContext } from "../../../context/apiContext";
+import { Typography } from "@mui/material";
 import AddButton from "../AddButton";
+import { Checklist } from "./CheckList";
 import * as styles from "./ColumnaUnoStyles";
+import { ListadoConsultas } from "./ListadoConsultas";
+import { ListadoImporte } from "./ListadoImporte";
 
 export const ColumnaUno = () => {
-  const { consultasFiltradas } = useContext(ApiContext);
-
   const addHistoriaClinica = () => {
-    console.log("Clickee en Agregar Pago")
-  }
-
-  const ListadoConsultas = () => {
-    if (!consultasFiltradas) return null;
-    console.log("las consultas a mostrar: ", consultasFiltradas);
-    return consultasFiltradas.map((element) => (
-      <li key={element.Id} style={styles.removeBullet}>
-        <Typography sx={styles.typoNormal}>{element.date}</Typography>
-      </li>
-    ));
-  };
-
-  const Checklist = () => {
-    if (!consultasFiltradas) return null;
-    return consultasFiltradas.map((element) => (
-      <li key={element.Id} style={styles.checkBox}>
-        <Checkbox disabled checked={element.payed} style={styles.checked} />
-      </li>
-    ));
+    console.log("Clickee en Agregar Pago");
   };
 
   return (
@@ -61,7 +41,11 @@ export const ColumnaUno = () => {
           </ul>
         </div>
 
-        <div style={styles.gridE}></div>
+        <div style={styles.gridE}>
+          <ul style={styles.ulStyle}>
+            <ListadoImporte />
+          </ul>
+        </div>
 
         <div style={styles.gridF}>
           <Checklist />

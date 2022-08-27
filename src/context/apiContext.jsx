@@ -40,9 +40,12 @@ export const Context = ({ children }) => {
       });
   }
 
+  async function addHistory() {}
+
   return (
     <ApiContext.Provider
       value={{
+        addHistory,
         createPacient,
         consultasFiltradas,
         setconsultasFiltradas,
