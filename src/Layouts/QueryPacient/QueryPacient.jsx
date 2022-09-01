@@ -8,11 +8,11 @@ import {
   Container,
   CssBaseline,
   Grid,
-  MenuItem,
   TextField,
   Typography,
 } from "@mui/material";
 import { useContext, useState } from "react";
+import { Dropdown } from "../../components/DropDown";
 import { ApiContext } from "../../context/apiContext";
 import { filters } from "./filters";
 import * as styles from "./QueryPacientStyles";
@@ -73,22 +73,12 @@ export const QueryPacient = () => {
           >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
-                <TextField
-                  id="filter"
-                  name="filter"
-                  fullWidth
-                  select
+                <Dropdown
+                  valueByDefault={filter.value}
+                  handleChange={handleChange}
+                  options={filters}
                   label="Buscar por"
-                  value={filter.value}
-                  onChange={handleChange}
-                  size="small"
-                >
-                  {filters.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
+                />
               </Grid>
 
               <Grid item xs={12} sm={6}>

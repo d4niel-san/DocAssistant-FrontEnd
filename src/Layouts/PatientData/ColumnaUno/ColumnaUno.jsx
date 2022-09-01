@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import AddButton from "../AddButton";
+import AddButton from "../../../components/AddButton";
 import { Checklist } from "./CheckList";
 import * as styles from "./ColumnaUnoStyles";
 import { ListadoConsultas } from "./ListadoConsultas";

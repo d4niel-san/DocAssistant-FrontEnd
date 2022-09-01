@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { useContext, useState } from "react";
 import { ApiContext } from "../../../context/apiContext";
-import AddButton from "../AddButton";
+import AddButton from "../../../components/AddButton";
 import * as styles from "./HistoriaClinicaStyles";
 import { AddStory } from "./ModalWindows/AddStory";
 

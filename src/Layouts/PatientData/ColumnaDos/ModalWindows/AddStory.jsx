@@ -1,16 +1,9 @@
-import {
-  Box,
-  Button,
-  Grid,
-  MenuItem,
-  Select,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
 import ReactDom from "react-dom";
+import CloseButton from "../../../../components/CloseButton";
+import { Dropdown } from "../../../../components/DropDown";
 import { ApiContext } from "../../../../context/apiContext";
-import CloseButton from "../../CloseButton";
 import * as styles from "./AddStoryStyles";
 
 //defaultValue={new Date().toISOString().slice(0, 10)}
@@ -37,24 +30,6 @@ export const AddStory = ({ onClose, open, children }) => {
     //createPacient(newUser);
   };
 
-  const Dropdown = () => {
-    return (
-      <Select
-        labelId="Fecha de Consulta"
-        id="date"
-        value={consulta}
-        onChange={handleChange}
-        label="Fecha de Consulta"
-      >
-        {consultasFiltradas.map((listItem, index) => (
-          <MenuItem key={index} value={listItem.date}>
-            {listItem.date}
-          </MenuItem>
-        ))}
-      </Select>
-    );
-  };
-
   return ReactDom.createPortal(
     <>
       <div style={styles.overlay} />
@@ -64,7 +39,16 @@ export const AddStory = ({ onClose, open, children }) => {
         <Box component="form" noValidate onSubmit={SignUpTest} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={6} sm={6}>
-              <Dropdown />
+              {console.log(consulta)}
+              <Dropdown
+                valueByDefault={consulta}
+                handleChange={handleChange}
+                options={consultasFiltradas.map((e) => ({
+                  value: e.date,
+                  label: e.date,
+                }))}
+                label="Fecha de Consulta"
+              />
             </Grid>
 
             <Grid item xs={12}>

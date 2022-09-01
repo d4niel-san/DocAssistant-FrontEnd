@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { filtrarConsultas } from "../components/PatientData/ColumnaUno/ColumnaUnoServices";
+import { filtrarConsultas } from "../Layouts/PatientData/ColumnaUno/ColumnaUnoServices";
 import api from "./api";
 
 export const ApiContext = createContext(0);
