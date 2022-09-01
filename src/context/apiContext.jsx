@@ -40,7 +40,13 @@ export const Context = ({ children }) => {
       });
   }
 
-  async function addHistory() {}
+  async function addHistory(historia) {
+    await api.post("/cargarHistoria", historia).then((response) => {
+      if (response) {
+        alert("Historia cargada correctamente");
+      }
+    });
+  }
 
   return (
     <ApiContext.Provider

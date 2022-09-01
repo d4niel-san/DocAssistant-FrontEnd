@@ -9,9 +9,9 @@ import * as styles from "./AddStoryStyles";
 //defaultValue={new Date().toISOString().slice(0, 10)}
 
 export const AddStory = ({ onClose, open, children }) => {
-  const { consultasFiltradas } = useContext(ApiContext);
+  const { consultasFiltradas, addHistory } = useContext(ApiContext);
   const [consulta, setConsulta] = useState(consultasFiltradas[0].date);
-  console.log(consulta);
+  const [charactersAvaliable, setCharactersAvaliable] = useState("");
 
   const handleChange = (event) => {
     setConsulta(event.target.value);
@@ -23,11 +23,10 @@ export const AddStory = ({ onClose, open, children }) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const newHistory = {
-      date: data.get("date"),
+      id: consultasFiltradas.filter((e) => e.date === data.get("date"))[0].Id,
       historia: data.get("historia"),
     };
-    console.log(newHistory);
-    //createPacient(newUser);
+    addHistory(newHistory);
   };
 
   return ReactDom.createPortal(
@@ -39,7 +38,6 @@ export const AddStory = ({ onClose, open, children }) => {
         <Box component="form" noValidate onSubmit={SignUpTest} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={6} sm={6}>
-              {console.log(consulta)}
               <Dropdown
                 valueByDefault={consulta}
                 handleChange={handleChange}
@@ -55,8 +53,15 @@ export const AddStory = ({ onClose, open, children }) => {
             <Grid item xs={12}>
               <TextField
                 required
+                multiline
                 fullWidth
+                minRows={7}
+                maxRows={7}
+                helperText={`caracteres restantes: ${charactersAvaliable}`}
                 focused
+                onChange={(event) => {
+                  setCharactersAvaliable(1500 - event.target.value.length);
+                }}
                 id="historia"
                 label="Historia Clinica"
                 name="historia"
