@@ -1,10 +1,29 @@
-import React from "react";
+import {
+  Box,
+  Button,
+  Grid,
+  MenuItem,
+  Select,
+  TextField,
+  Typography,
+} from "@mui/material";
+import React, { useContext, useState } from "react";
 import ReactDom from "react-dom";
-import * as styles from "./AddStoryStyles";
+import { ApiContext } from "../../../../context/apiContext";
 import CloseButton from "../../CloseButton";
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import * as styles from "./AddStoryStyles";
+
+//defaultValue={new Date().toISOString().slice(0, 10)}
 
 export const AddStory = ({ onClose, open, children }) => {
+  const { consultasFiltradas } = useContext(ApiContext);
+  const [consulta, setConsulta] = useState(consultasFiltradas[0].date);
+  console.log(consulta);
+
+  const handleChange = (event) => {
+    setConsulta(event.target.value);
+  };
+
   if (!open) return null;
 
   const SignUpTest = (event) => {
@@ -18,6 +37,24 @@ export const AddStory = ({ onClose, open, children }) => {
     //createPacient(newUser);
   };
 
+  const Dropdown = () => {
+    return (
+      <Select
+        labelId="Fecha de Consulta"
+        id="date"
+        value={consulta}
+        onChange={handleChange}
+        label="Fecha de Consulta"
+      >
+        {consultasFiltradas.map((listItem, index) => (
+          <MenuItem key={index} value={listItem.date}>
+            {listItem.date}
+          </MenuItem>
+        ))}
+      </Select>
+    );
+  };
+
   return ReactDom.createPortal(
     <>
       <div style={styles.overlay} />
@@ -27,17 +64,7 @@ export const AddStory = ({ onClose, open, children }) => {
         <Box component="form" noValidate onSubmit={SignUpTest} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={6} sm={6}>
-              <TextField
-                name="date"
-                required
-                fullWidth
-                id="date"
-                label="Fecha de Consulta"
-                focused
-                size="small"
-                type="date"
-                defaultValue={new Date().toISOString().slice(0, 10)}
-              />
+              <Dropdown />
             </Grid>
 
             <Grid item xs={12}>
