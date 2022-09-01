@@ -77,6 +77,7 @@ export const QueryPacient = () => {
                   valueByDefault={filter.value}
                   handleChange={handleChange}
                   options={filters}
+                  id="filter"
                   label="Buscar por"
                 />
               </Grid>

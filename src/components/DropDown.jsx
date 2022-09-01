@@ -8,12 +8,17 @@ import { MenuItem, TextField } from "@mui/material";
  * @param {string} options[].label - Etiqueta.
  */
 
-export const Dropdown = ({ valueByDefault, handleChange, options, label }) => {
-  console.log(options);
+export const Dropdown = ({
+  valueByDefault,
+  handleChange,
+  options,
+  label,
+  id,
+}) => {
   return (
     <TextField
-      id="filter"
-      name="filter"
+      id={id}
+      name={id}
       fullWidth
       select
       label={label}
@@ -23,7 +28,6 @@ export const Dropdown = ({ valueByDefault, handleChange, options, label }) => {
     >
       {options.map((option) => (
         <MenuItem key={option.value} value={option.value}>
-          {console.log(option)}
           {option.label}
         </MenuItem>
       ))}

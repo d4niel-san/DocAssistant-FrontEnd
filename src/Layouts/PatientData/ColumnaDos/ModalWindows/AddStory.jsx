@@ -43,6 +43,7 @@ export const AddStory = ({ onClose, open, children }) => {
               <Dropdown
                 valueByDefault={consulta}
                 handleChange={handleChange}
+                id="date"
                 options={consultasFiltradas.map((e) => ({
                   value: e.date,
                   label: e.date,
