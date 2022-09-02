@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { ApiContext } from "../../../context/apiContext";
 import AddButton from "../../../components/AddButton";
 import * as styles from "./HistoriaClinicaStyles";
-import { AddStory } from "./ModalWindows/AddStory";
+import { AddStory } from "../ModalWindows/AddStory";
 
 export const HistoriaClinica = () => {
   const { pacienteBuscado } = useContext(ApiContext);

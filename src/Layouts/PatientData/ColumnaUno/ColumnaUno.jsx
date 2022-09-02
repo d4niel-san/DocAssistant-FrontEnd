@@ -1,11 +1,16 @@
 import { Typography } from "@mui/material";
-import AddButton from "../../../components/AddButton";
 import { Checklist } from "./CheckList";
-import * as styles from "./ColumnaUnoStyles";
 import { ListadoConsultas } from "./ListadoConsultas";
 import { ListadoImporte } from "./ListadoImporte";
+import * as styles from "./ColumnaUnoStyles";
+import AddButton from "../../../components/AddButton";
+import { TablaConsultas } from "../../../components/TablaConsultas/TablaConsultas";
+import { useContext } from "react";
+import { ApiContext } from "../../../context/apiContext";
 
 export const ColumnaUno = () => {
+  const { consultasFiltradas } = useContext(ApiContext);
+
   const addHistoriaClinica = () => {
     console.log("Clickee en Agregar Pago");
   };
@@ -13,7 +18,7 @@ export const ColumnaUno = () => {
   return (
     <div style={styles.columnaUno}>
       <div style={styles.gridContainer}>
-        <div style={styles.gridA}>
+        {/* <div style={styles.gridA}>
           <Typography
             fontFamily="roboto"
             align="center"
@@ -49,8 +54,8 @@ export const ColumnaUno = () => {
 
         <div style={styles.gridF}>
           <Checklist />
-        </div>
-
+        </div> */}
+        <TablaConsultas consultas={consultasFiltradas} />
         <div style={styles.gridG}>
           <AddButton texto="Agregar Pago" function={addHistoriaClinica} />
         </div>

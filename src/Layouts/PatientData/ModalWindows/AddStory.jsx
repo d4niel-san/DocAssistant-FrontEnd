@@ -1,9 +1,9 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import React, { useContext, useMemo, useState } from "react";
 import ReactDom from "react-dom";
-import CloseButton from "../../../../components/CloseButton";
-import { Dropdown } from "../../../../components/DropDown";
-import { ApiContext } from "../../../../context/apiContext";
+import CloseButton from "../../../components/CloseButton";
+import { Dropdown } from "../../../components/DropDown";
+import { ApiContext } from "../../../context/apiContext";
 import * as styles from "./AddStoryStyles";
 
 //defaultValue={new Date().toISOString().slice(0, 10)}
