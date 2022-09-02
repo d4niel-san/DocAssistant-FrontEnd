@@ -1,5 +1,5 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
-import React, { useContext, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import ReactDom from "react-dom";
 import CloseButton from "../../../../components/CloseButton";
 import { Dropdown } from "../../../../components/DropDown";
@@ -10,11 +10,23 @@ import * as styles from "./AddStoryStyles";
 
 export const AddStory = ({ onClose, open, children }) => {
   const { consultasFiltradas, addHistory } = useContext(ApiContext);
-  const [consulta, setConsulta] = useState(consultasFiltradas[0].date);
-  const [charactersAvaliable, setCharactersAvaliable] = useState("");
+  const [dateConsulta, setDateConsulta] = useState(consultasFiltradas[0].date);
+  const [registroConsulta, setRegistroConsulta] = useState(
+    consultasFiltradas[0].register
+  );
+  const [charactersAvaliable, setCharactersAvaliable] = useState(1500);
+  const [texto, setTexto] = useState(registroConsulta);
+
+  useMemo(() => {
+    setTexto(registroConsulta);
+  }, [registroConsulta]);
 
   const handleChange = (event) => {
-    setConsulta(event.target.value);
+    setDateConsulta(event.target.value);
+    setRegistroConsulta(
+      consultasFiltradas.filter((e) => e.date === event.target.value)[0]
+        .register
+    );
   };
 
   if (!open) return null;
@@ -39,7 +51,7 @@ export const AddStory = ({ onClose, open, children }) => {
           <Grid container spacing={2}>
             <Grid item xs={6} sm={6}>
               <Dropdown
-                valueByDefault={consulta}
+                valueByDefault={dateConsulta}
                 handleChange={handleChange}
                 id="date"
                 options={consultasFiltradas.map((e) => ({
@@ -55,12 +67,15 @@ export const AddStory = ({ onClose, open, children }) => {
                 required
                 multiline
                 fullWidth
+                defaultValue={registroConsulta}
+                value={texto}
                 minRows={7}
                 maxRows={7}
                 helperText={`caracteres restantes: ${charactersAvaliable}`}
                 focused
                 onChange={(event) => {
                   setCharactersAvaliable(1500 - event.target.value.length);
+                  setTexto(event.target.value);
                 }}
                 id="historia"
                 label="Historia Clinica"
