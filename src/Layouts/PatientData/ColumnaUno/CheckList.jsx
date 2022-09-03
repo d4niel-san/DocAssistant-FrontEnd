@@ -1,17 +1,22 @@
 import { Checkbox } from "@mui/material";
+import { useState } from "react";
 import * as styles from "./ColumnaUnoStyles";
 
 export const Checklist = ({ consultas, paymentAbaliable }) => {
+  const [disabler, setDisabler] = useState(true);
+
   if (!consultas) return null;
 
   const handleClick = () => {
-    console.log("entre");
+    setDisabler(false);
+    //console.log(id);
+    //AddPayment()
   };
 
   return consultas.map((element) => (
     <li key={element.Id} style={styles.checkBox}>
       <Checkbox
-        disabled={!paymentAbaliable}
+        disabled={!(paymentAbaliable && disabler)} //true desabilita
         checked={element.payed}
         style={styles.checked}
         onClick={paymentAbaliable && handleClick}
@@ -19,3 +24,12 @@ export const Checklist = ({ consultas, paymentAbaliable }) => {
     </li>
   ));
 };
+
+/*
+                     tablaConsultas      AddPayment      
+paymentAbaliable        false               true
+
+disabler              false/true          false/true
+
+disable (esperado)      true                false
+*/
