@@ -8,7 +8,7 @@ import * as styles from "./AddStoryStyles";
 
 //defaultValue={new Date().toISOString().slice(0, 10)}
 
-export const AddStory = ({ onClose, open, children }) => {
+export const AddStory = ({ onClose, open }) => {
   const { consultasFiltradas, addHistory } = useContext(ApiContext);
   const [dateConsulta, setDateConsulta] = useState(consultasFiltradas[0].date);
   const [registroConsulta, setRegistroConsulta] = useState(
@@ -46,7 +46,7 @@ export const AddStory = ({ onClose, open, children }) => {
       <div style={styles.overlay} />
       <div style={styles.modal}>
         <Typography align="center">Agregar Historia Clinica</Typography>
-        {children}
+
         <Box component="form" noValidate onSubmit={SignUpTest} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={6} sm={6}>

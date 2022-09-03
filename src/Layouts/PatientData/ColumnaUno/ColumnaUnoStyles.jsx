@@ -97,12 +97,12 @@ const checkBox = {
   display: "flex",
   align: "center",
   justifyContent: "center",
-  color: pink[800],
+  //color: pink[800],
   listStyleType: "none",
 };
 
 const checked = {
-  color: pink[600],
+  //color: pink[600],
 };
 
 export {

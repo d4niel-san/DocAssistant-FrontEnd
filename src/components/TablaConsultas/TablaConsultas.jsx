@@ -13,6 +13,8 @@ import { ListadoImporte } from "./ListadoImporte";
  */
 
 export const TablaConsultas = ({ consultas, paymentAbaliable }) => {
+  console.log(paymentAbaliable);
+
   return (
     <>
       <div style={styles.gridA}>
