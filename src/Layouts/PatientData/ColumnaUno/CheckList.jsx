@@ -1,11 +1,21 @@
 import { Checkbox } from "@mui/material";
 import * as styles from "./ColumnaUnoStyles";
 
-export const Checklist = ({ consultas }) => {
+export const Checklist = ({ consultas, paymentAbaliable }) => {
   if (!consultas) return null;
+
+  const handleClick = () => {
+    console.log("entre");
+  };
+
   return consultas.map((element) => (
     <li key={element.Id} style={styles.checkBox}>
-      <Checkbox disabled checked={element.payed} style={styles.checked} />
+      <Checkbox
+        disabled={!paymentAbaliable}
+        checked={element.payed}
+        style={styles.checked}
+        onClick={paymentAbaliable && handleClick}
+      />
     </li>
   ));
 };

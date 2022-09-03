@@ -19,7 +19,7 @@ export const AddPayment = ({ onClose, open }) => {
           <div style={styles.gridContainer}>
             <TablaConsultas
               consultas={consultasImpagas}
-              paymentAbaliable="true"
+              paymentAbaliable={true}
             />
           </div>
           <CloseButton texto="Cerrar" function={onClose}></CloseButton>

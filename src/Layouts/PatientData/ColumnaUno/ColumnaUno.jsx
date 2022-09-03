@@ -19,7 +19,7 @@ export const ColumnaUno = () => {
       <div style={styles.gridContainer}>
         <TablaConsultas
           consultas={consultasFiltradas}
-          paymentAbaliable="false"
+          paymentAbaliable={false}
         />
         <div style={styles.gridG}>
           <AddButton texto="Agregar Pago" function={addHistoriaClinica} />
