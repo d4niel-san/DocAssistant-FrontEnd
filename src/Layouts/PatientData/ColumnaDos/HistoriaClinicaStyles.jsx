@@ -9,6 +9,8 @@ const border = {
   borderColor: "#040303a1",
   padding: "5px",
   marginBottom: "15px",
+  height: "250px",
+  overflow: "auto",
 };
 
 const colorSecundario = "#F6E1E6";
