@@ -3,12 +3,14 @@ import * as styles from "./ColumnaUnoStyles";
 import { ReactiveCheckBox } from "./ReactiveCheckBox";
 
 export const Checklist = ({ consultas, paymentAbaliable }) => {
+  console.log("checklist: ", consultas);
+
   if (!consultas) return null;
 
   if (paymentAbaliable) {
     return consultas.map((element) => (
       <li key={element.Id} style={styles.checkBox}>
-        <ReactiveCheckBox checked={element.payed} />
+        <ReactiveCheckBox props={consultas} />
       </li>
     ));
   } else {

@@ -10,7 +10,8 @@ export const AddPayment = ({ onClose, open }) => {
   const { consultasFiltradas } = useContext(ApiContext);
 
   function modificarHistoriaClinica() {
-    console.log("guardate");
+    const consultasPagadas = consultasFiltradas.filter((e) => e.payed);
+    console.log(consultasPagadas);
   }
 
   const consultasImpagas = consultasFiltradas.filter((e) => !e.payed);

@@ -42,7 +42,7 @@ export const HistoriaClinica = () => {
       </div>
       <div>
         <AddButton
-          texto="Nueva Historia"
+          texto="Modificar / Agregar Historia"
           backgroundColor="white"
           function={() => setModalIsOpen(!modalIsOpen)}
         />

@@ -10,6 +10,10 @@ export const Context = ({ children }) => {
   const [pacienteBuscado, setPacienteBuscado] = useState();
   const [consultasFiltradas, setconsultasFiltradas] = useState();
 
+  /* const [consultasImpagas, setConsultasImpagas] = useState(
+    consultasFiltradas.filter((e) => !e.payed)
+  ); */
+
   const [showNavBar, setShowNavBar] = useState(true);
   let navigate = useNavigate();
 
