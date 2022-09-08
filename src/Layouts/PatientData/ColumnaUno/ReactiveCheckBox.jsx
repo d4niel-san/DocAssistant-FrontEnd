@@ -10,9 +10,10 @@ export const ReactiveCheckBox = ({ checked }) => {
 
   return (
     <Checkbox
-      disabled={!disabler} //true desabilita
+      //disabled={!disabler} //true desabilita
       checked={!disabler}
       onClick={handleClick}
+      color={"pinkMain"}
     />
   );
 };

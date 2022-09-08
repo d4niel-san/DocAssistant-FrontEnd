@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { blue, grey, teal } from "@mui/material/colors";
+import { blue, grey, teal, pink } from "@mui/material/colors";
 import { alpha } from "@mui/material";
 
 const generalTheme = createTheme({
@@ -28,6 +28,9 @@ const generalTheme = createTheme({
     backWhite: {
       main: "#FFE8DA",
     },
+
+    pinkMain: { main: pink[200] },
+    pinkSecondary: { main: pink[700] },
   },
 });
 

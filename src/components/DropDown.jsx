@@ -14,12 +14,15 @@ export const Dropdown = ({
   options,
   label,
   id,
+  color,
 }) => {
   return (
     <TextField
       id={id}
       name={id}
       fullWidth
+      color={color}
+      focused
       select
       label={label}
       value={valueByDefault}

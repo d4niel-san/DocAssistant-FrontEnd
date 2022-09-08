@@ -9,7 +9,8 @@ import * as styles from "./AddStoryStyles";
 //defaultValue={new Date().toISOString().slice(0, 10)}
 
 export const AddStory = ({ onClose, open }) => {
-  const { consultasFiltradas, addHistory } = useContext(ApiContext);
+  const { pacienteBuscado, addHistory } = useContext(ApiContext); //consultasFiltradas
+  const consultasFiltradas = pacienteBuscado.consultas;
   const [dateConsulta, setDateConsulta] = useState(consultasFiltradas[0].date);
   const [registroConsulta, setRegistroConsulta] = useState(
     consultasFiltradas[0].register
@@ -59,6 +60,7 @@ export const AddStory = ({ onClose, open }) => {
                   label: e.date,
                 }))}
                 label="Fecha de Consulta"
+                color={"pinkMain"}
               />
             </Grid>
 
@@ -67,7 +69,7 @@ export const AddStory = ({ onClose, open }) => {
                 required
                 multiline
                 fullWidth
-                color={"secondary"}
+                color={"pinkMain"}
                 defaultValue={registroConsulta}
                 value={texto}
                 minRows={7}
@@ -88,6 +90,7 @@ export const AddStory = ({ onClose, open }) => {
 
           <Button
             type="submit"
+            color={"pinkMain"}
             fullWidth
             variant="contained"
             sx={styles.Button}
