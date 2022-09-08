@@ -18,6 +18,12 @@ const overlay = {
   zIndex: 1000,
 };
 
+const buttonRow = {
+  display: "flex",
+  justifyContent: "center",
+  paddingBottom: "13px",
+};
+
 const Button = {
   mt: 3,
   mb: 2,
@@ -45,4 +51,4 @@ const gridContainer = {
   rowGap: "2px",
 };
 
-export { modal, overlay, Button, gridContainer, columnaUno };
+export { modal, overlay, Button, gridContainer, columnaUno, buttonRow };
