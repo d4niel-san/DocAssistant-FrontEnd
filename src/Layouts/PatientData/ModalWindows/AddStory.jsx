@@ -67,6 +67,7 @@ export const AddStory = ({ onClose, open }) => {
                 required
                 multiline
                 fullWidth
+                color={"secondary"}
                 defaultValue={registroConsulta}
                 value={texto}
                 minRows={7}

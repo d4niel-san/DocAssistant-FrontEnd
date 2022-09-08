@@ -17,10 +17,7 @@ export const AddPayment = ({ onClose, open }) => {
       <div style={styles.modal}>
         <div style={styles.columnaUno}>
           <div style={styles.gridContainer}>
-            <TablaConsultas
-              consultas={consultasImpagas}
-              paymentAbaliable={true}
-            />
+            <TablaConsultas consultas={consultasImpagas} paymentAbaliable />
           </div>
           <CloseButton texto="Cerrar" function={onClose}></CloseButton>
         </div>

@@ -5,7 +5,6 @@ import { alpha } from "@mui/material";
 const generalTheme = createTheme({
   //shadows: ["0px 2px 1px -1px rgba(0,0,0,0.5)"],
 
-
   palette: {
     primary: {
       main: "#008a7a",

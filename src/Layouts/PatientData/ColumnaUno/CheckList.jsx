@@ -1,35 +1,25 @@
 import { Checkbox } from "@mui/material";
-import { useState } from "react";
 import * as styles from "./ColumnaUnoStyles";
+import { ReactiveCheckBox } from "./ReactiveCheckBox";
 
 export const Checklist = ({ consultas, paymentAbaliable }) => {
-  const [disabler, setDisabler] = useState(true);
-
   if (!consultas) return null;
 
-  const handleClick = () => {
-    setDisabler(false);
-    //console.log(id);
-    //AddPayment()
-  };
-
-  return consultas.map((element) => (
-    <li key={element.Id} style={styles.checkBox}>
-      <Checkbox
-        disabled={!(paymentAbaliable && disabler)} //true desabilita
-        checked={element.payed}
-        style={styles.checked}
-        onClick={paymentAbaliable && handleClick}
-      />
-    </li>
-  ));
+  if (paymentAbaliable) {
+    return consultas.map((element) => (
+      <li key={element.Id} style={styles.checkBox}>
+        <ReactiveCheckBox checked={element.payed} />
+      </li>
+    ));
+  } else {
+    return consultas.map((element) => (
+      <li key={element.Id} style={styles.checkBox}>
+        <Checkbox
+          disabled={true}
+          checked={element.payed}
+          style={styles.checked}
+        />
+      </li>
+    ));
+  }
 };
-
-/*
-                     tablaConsultas      AddPayment      
-paymentAbaliable        false               true
-
-disabler              false/true          false/true
-
-disable (esperado)      true                false
-*/
