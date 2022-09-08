@@ -3,7 +3,6 @@ import * as styles from "./AddButtonStyles";
 import SaveIcon from "@mui/icons-material/Save";
 
 export const SaveButton = (props) => {
-  const {} = props;
   const handleClick = () => {
     props.function();
   };

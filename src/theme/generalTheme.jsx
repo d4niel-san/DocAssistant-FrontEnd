@@ -29,8 +29,8 @@ const generalTheme = createTheme({
       main: "#FFE8DA",
     },
 
-    pinkMain: { main: pink[200] },
-    pinkSecondary: { main: pink[700] },
+    pinkMain: { main: "rgb(221, 108, 142)" },
+    pinkSecondary: { main: "rgb(227, 122, 142)" },
   },
 });
 

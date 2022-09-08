@@ -24,6 +24,16 @@ export const Context = ({ children }) => {
       });
   }
 
+  const refreshPacient = () => {
+    const dni = pacienteBuscado.DNI.replace(/\./g, "");
+    const User = {
+      filter: "dni",
+      data: dni,
+    };
+    console.log(User);
+    searchPacient(User);
+  };
+
   async function searchPacient(patient) {
     await api
       .post("/getPaciente", patient)
@@ -56,6 +66,7 @@ export const Context = ({ children }) => {
         consultasFiltradas,
         setconsultasFiltradas,
         searchPacient,
+        refreshPacient,
         isUserLogged,
         setIsUserLogged,
         pacienteBuscado,

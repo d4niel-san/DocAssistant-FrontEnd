@@ -9,7 +9,8 @@ import * as styles from "./AddStoryStyles";
 //defaultValue={new Date().toISOString().slice(0, 10)}
 
 export const AddStory = ({ onClose, open }) => {
-  const { pacienteBuscado, addHistory } = useContext(ApiContext); //consultasFiltradas
+  const { pacienteBuscado, addHistory, refreshPacient } =
+    useContext(ApiContext); //consultasFiltradas
   const consultasFiltradas = pacienteBuscado.consultas;
   const [dateConsulta, setDateConsulta] = useState(consultasFiltradas[0].date);
   const [registroConsulta, setRegistroConsulta] = useState(
@@ -40,6 +41,7 @@ export const AddStory = ({ onClose, open }) => {
       historia: data.get("historia"),
     };
     addHistory(newHistory);
+    refreshPacient();
   };
 
   return ReactDom.createPortal(

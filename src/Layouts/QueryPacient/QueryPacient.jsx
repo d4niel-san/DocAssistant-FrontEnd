@@ -29,7 +29,8 @@ export const QueryPacient = () => {
       filter: data.get("filter"),
       data: data.get("data"),
     };
-    switch (data.get("filter")) {
+    console.log(searchUser);
+    /* switch (data.get("filter")) {
       case "lastName":
         console.log("Apellido: " + data.get("data"));
         break;
@@ -41,7 +42,7 @@ export const QueryPacient = () => {
         break;
       default:
         console.log("Defaultee");
-    }
+    } */
     searchPacient(searchUser);
   };
 

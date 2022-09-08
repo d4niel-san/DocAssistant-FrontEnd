@@ -9,7 +9,7 @@ const border = {
   borderColor: "#040303a1",
   padding: "5px",
   marginBottom: "15px",
-}
+};
 
 const colorSecundario = "#F6E1E6";
 
@@ -23,7 +23,7 @@ const historiaClinicaId = {
 const historiaClinicaIdData = {
   fontWeight: 100,
   fontSize: 20,
-  color: "RGB(227, 122, 142)",
+  color: "rgb(227, 122, 142)",
 };
 
 const hr = {
