@@ -8,9 +8,10 @@ import * as styles from "./AddPaymentStyles";
 
 export const AddPayment = ({ onClose, open }) => {
   const { consultasFiltradas, consultasImpagas } = useContext(ApiContext);
-
+ 
   function modificarHistoriaClinica() {
-    const consultasPagadas = consultasFiltradas.filter((e) => e.payed);
+    /* const consultasPagadas = consultasFiltradas.filter((e) => e.payed);
+    console.log(consultasImpagas) */
   }
 
   //const consultasImpagas = consultasFiltradas.filter((e) => !e.payed);

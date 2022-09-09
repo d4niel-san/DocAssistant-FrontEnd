@@ -1,5 +1,5 @@
 import { Checkbox } from "@mui/material";
-import * as styles from "./ColumnaUnoStyles";
+import * as styles from "./CheckListStyles";
 
 export const Checklist = ({ consultas, paymentAbaliable }) => {
   if (!consultas) return null;

@@ -1,6 +1,7 @@
-import { Typography } from "@mui/material";
+import { Checkbox, Typography } from "@mui/material";
 import { ReactiveCheckBox } from "../ReactiveCheckBox";
 import * as styles from "../TablaConsultas/TablaConsultasStyles";
+import { Checklist } from "./CheckList";
 
 /**
  *
@@ -11,13 +12,22 @@ import * as styles from "../TablaConsultas/TablaConsultasStyles";
  */
 
 export const TablaConsultas = ({ consultas, paymentAbaliable }) => {
+  
+  const renderizadoCondicional = (element) => {
+    if (paymentAbaliable)
+      return <ReactiveCheckBox {...element} />
+    else {
+      return <Checkbox checked={element.payed} disabled color={"pinkMain"} />
+      }
+  }
+  
   const SubTabla = () => {
     return consultas.map((element) => (
-      <div style={styles.gridContainer}>
+      <div key={element.Id} style={styles.gridContainer}>
         <div style={styles.gridA}>{element.date}</div>
         <div style={styles.gridB}>$ {element.amount}</div>
         <div style={styles.gridC}>
-          <ReactiveCheckBox />
+          {renderizadoCondicional(element)}
         </div>
       </div>
     ));
