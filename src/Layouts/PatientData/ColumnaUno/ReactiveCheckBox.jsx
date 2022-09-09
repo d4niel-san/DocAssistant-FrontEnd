@@ -1,14 +1,13 @@
 import { Checkbox } from "@mui/material";
 import { useState } from "react";
 
-export const ReactiveCheckBox = (props) => {
+export const ReactiveCheckBox = ({element}) => {
   const [disabler, setDisabler] = useState(true);
-  console.log("props: ", props);
-
+  console.log("element: ",element)
+  
   const handleClick = () => {
     setDisabler(!disabler);
-    console.log(props.payed);
-    props.payed = !props.payed;
+    element = !element
   };
 
   return (

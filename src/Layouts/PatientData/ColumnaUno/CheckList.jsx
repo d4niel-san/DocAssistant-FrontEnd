@@ -1,16 +1,18 @@
 import { Checkbox } from "@mui/material";
+import { useContext } from "react";
+import { ApiContext } from "../../../context/apiContext";
 import * as styles from "./ColumnaUnoStyles";
 import { ReactiveCheckBox } from "./ReactiveCheckBox";
 
 export const Checklist = ({ consultas, paymentAbaliable }) => {
-  console.log("checklist: ", consultas);
-
-  if (!consultas) return null;
+  const { consultasImpagas } = useContext(ApiContext);
+/*   console.log("Consultas Impagas: ",consultasImpagas)
+ */  if (!consultas) return null;
 
   if (paymentAbaliable) {
-    return consultas.map((element) => (
+    return consultasImpagas.map((element) => (
       <li key={element.Id} style={styles.checkBox}>
-        <ReactiveCheckBox props={consultas} />
+        <ReactiveCheckBox element/>
       </li>
     ));
   } else {

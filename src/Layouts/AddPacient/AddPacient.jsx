@@ -31,7 +31,7 @@ export const AddPacient = () => {
       cell: data.get("cell"),
       dni: data.get("dni"),
     };
-    console.log(newUser);
+    console.warn("Usuario Nuevo: ", newUser);
     createPacient(newUser);
   };
 

@@ -2,19 +2,18 @@ import { useContext } from "react";
 import ReactDom from "react-dom";
 import CloseButton from "../../../components/CloseButton";
 import { SaveButton } from "../../../components/SaveButton";
-import { TablaConsultas } from "../../../components/TablaConsultas/TablaConsultas";
+import { TablaConsultas } from "../ColumnaUno/TablaConsultas/TablaConsultas";
 import { ApiContext } from "../../../context/apiContext";
 import * as styles from "./AddPaymentStyles";
 
 export const AddPayment = ({ onClose, open }) => {
-  const { consultasFiltradas } = useContext(ApiContext);
+  const { consultasFiltradas, consultasImpagas } = useContext(ApiContext);
 
   function modificarHistoriaClinica() {
     const consultasPagadas = consultasFiltradas.filter((e) => e.payed);
-    console.log(consultasPagadas);
   }
 
-  const consultasImpagas = consultasFiltradas.filter((e) => !e.payed);
+  //const consultasImpagas = consultasFiltradas.filter((e) => !e.payed);
   if (!open) return null;
 
   return ReactDom.createPortal(

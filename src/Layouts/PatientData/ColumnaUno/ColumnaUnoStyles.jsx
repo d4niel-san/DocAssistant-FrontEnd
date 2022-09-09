@@ -13,16 +13,31 @@ const columnaUno = {
   backgroundColor: colorSecundario,
 };
 
+const tablaContainer = {
+  //  bottom: "120px",
+  position: "relative",
+  paddingBottom: "20px",
+  display: "grid",
+  /* gridTemplateColumns: "40% 40% 20%",
+  gridcemplateRows: "20% 80%", */
+  gridTemplateColumns: "repeat(3, 1fr)",
+  //gridTemplateRows: "repeat(2, 1fr)",
+  gridcolumnGap: "0px",
+  gridbowGap: "0px",
+  rowGap: "2px",
+};
 const gridContainer = {
   //  bottom: "120px",
   position: "relative",
   paddingBottom: "100px",
-  display: "grid",
-  gridTemplateColumns: "40% 40% 20%",
-  gridcemplateRows: "20% 80%",
-  gridcolumnGap: "0px",
+  //display: "grid",
+  /* gridTemplateColumns: "40% 40% 20%",
+  gridcemplateRows: "20% 80%", */
+  /* gridTemplateColumns: "repeat(3, 1fr)",
+  gridTemplateRows: "repeat(2, 1fr)",
+  gridcolumnGap: "0px", *//* 
   gridbowGap: "0px",
-  rowGap: "2px",
+  rowGap: "2px", */
 };
 
 const gridA = {
@@ -78,6 +93,10 @@ const gridG = {
   justifyContent: "center", */
 };
 
+const gridEsp = {
+  gridArea: "2 / 1 / 3 / 4",
+};
+
 const ulStyle = {
   align: "center",
   padding: 0,
@@ -117,6 +136,8 @@ export {
   gridE,
   gridF,
   gridG,
+  gridEsp,
+  tablaContainer,
   removeBullet,
   typoPrimary,
   ulStyle,

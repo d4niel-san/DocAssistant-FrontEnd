@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useContext } from "react";
 import AddButton from "../../../components/AddButton";
-import { TablaConsultas } from "../../../components/TablaConsultas/TablaConsultas";
+import { TablaConsultas } from "./TablaConsultas/TablaConsultas";
 import { ApiContext } from "../../../context/apiContext";
 import { AddPayment } from "../ModalWindows/AddPayment";
 import * as styles from "./ColumnaUnoStyles";
@@ -26,6 +26,7 @@ export const ColumnaUno = () => {
         </div>
         <AddPayment open={modalIsOpen} onClose={() => setModalIsOpen(false)} />
       </div>
+      
     </div>
   );
 };

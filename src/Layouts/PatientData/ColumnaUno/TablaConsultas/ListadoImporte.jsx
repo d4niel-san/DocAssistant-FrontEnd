@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import * as styles from "./ColumnaUnoStyles";
+import * as styles from "./TablaConsultasStyles";
 
 export const ListadoImporte = ({ consultas }) => {
   if (!consultas) return null;

@@ -9,10 +9,8 @@ export const Context = ({ children }) => {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [pacienteBuscado, setPacienteBuscado] = useState();
   const [consultasFiltradas, setconsultasFiltradas] = useState();
+  const [consultasImpagas, setConsultasImpagas] = useState();
 
-  /* const [consultasImpagas, setConsultasImpagas] = useState(
-    consultasFiltradas.filter((e) => !e.payed)
-  ); */
 
   const [showNavBar, setShowNavBar] = useState(true);
   let navigate = useNavigate();
@@ -24,7 +22,7 @@ export const Context = ({ children }) => {
         if (response) alert("Paciente Agregado a la base de datos");
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   }
 
@@ -34,7 +32,7 @@ export const Context = ({ children }) => {
       filter: "dni",
       data: dni,
     };
-    console.log(User);
+    console.warn("Usuario: ", User);
     searchPacient(User);
   };
 
@@ -43,14 +41,15 @@ export const Context = ({ children }) => {
       .post("/getPaciente", patient)
       .then((response) => {
         if (response) {
-          console.log("Paciente encontrado: ", response.data);
+          console.warn("Paciente encontrado: ", response.data);
           setPacienteBuscado(response.data);
           navigate("/Pacient", { replace: true });
           setconsultasFiltradas(filtrarConsultas(response.data.consultas));
+          setConsultasImpagas(response.data.consultas.filter((e) => !e.payed))
         }
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   }
 
@@ -69,6 +68,8 @@ export const Context = ({ children }) => {
         createPacient,
         consultasFiltradas,
         setconsultasFiltradas,
+        consultasImpagas,
+        setConsultasImpagas,
         searchPacient,
         refreshPacient,
         isUserLogged,

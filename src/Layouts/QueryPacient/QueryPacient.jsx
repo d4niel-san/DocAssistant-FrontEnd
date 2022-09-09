@@ -29,20 +29,6 @@ export const QueryPacient = () => {
       filter: data.get("filter"),
       data: data.get("data"),
     };
-    console.log(searchUser);
-    /* switch (data.get("filter")) {
-      case "lastName":
-        console.log("Apellido: " + data.get("data"));
-        break;
-      case "dni":
-        console.log("DNI: " + data.get("data"));
-        break;
-      case "cell":
-        console.log("Celular: " + data.get("data"));
-        break;
-      default:
-        console.log("Defaultee");
-    } */
     searchPacient(searchUser);
   };
 
