@@ -27,8 +27,8 @@ export const TablaConsultas = ({ consultas, paymentAbaliable }) => {
   };
 
   return (
-    <>
-      <div style={styles.gridContainer}>
+    <div style={{borderBottom: "2px solid white", marginBottom: "10px"}}>
+      <div style={{...styles.gridContainer, borderBottom: "2px solid white",}}>
         <div style={styles.gridA}>
           <Typography
             fontFamily="roboto"
@@ -54,21 +54,7 @@ export const TablaConsultas = ({ consultas, paymentAbaliable }) => {
 
       <SubTabla />
 
-      {/* <div style={styles.gridD}>
-      <ul style={styles.ulStyle}>
-        <ListadoConsultas consultas={consultas} />
-      </ul>
-    </div>
-
-    <div style={styles.gridE}>
-      <ul style={styles.ulStyle}>
-        <ListadoImporte consultas={consultas} />
-      </ul>
-    </div>
-
-    <div style={styles.gridF}>
-      <Checklist consultas={consultas} paymentAbaliable={paymentAbaliable} />
-    </div> */}
-    </>
+     
+    </div >
   );
 };
