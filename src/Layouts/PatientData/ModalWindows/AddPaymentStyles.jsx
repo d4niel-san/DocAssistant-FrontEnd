@@ -24,10 +24,6 @@ const buttonRow = {
   paddingBottom: "13px",
 };
 
-const Button = {
-  mt: 3,
-  mb: 2,
-};
 const colorSecundario = "#F6E1E6";
 
 const columnaUno = {
@@ -40,15 +36,8 @@ const columnaUno = {
 };
 
 const gridContainer = {
-  //  bottom: "120px",
   position: "relative",
   paddingBottom: "100px",
-  display: "grid",
-  gridTemplateColumns: "40% 40% 20%",
-  gridcemplateRows: "20% 80%",
-  gridcolumnGap: "0px",
-  gridbowGap: "0px",
-  rowGap: "2px",
 };
 
-export { modal, overlay, Button, gridContainer, columnaUno, buttonRow };
+export { modal, overlay, gridContainer, columnaUno, buttonRow };

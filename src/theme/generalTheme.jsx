@@ -1,6 +1,6 @@
-import { createTheme } from "@mui/material/styles";
-import { blue, grey, teal, pink } from "@mui/material/colors";
 import { alpha } from "@mui/material";
+import { blue, grey, teal } from "@mui/material/colors";
+import { createTheme } from "@mui/material/styles";
 
 const generalTheme = createTheme({
   //shadows: ["0px 2px 1px -1px rgba(0,0,0,0.5)"],

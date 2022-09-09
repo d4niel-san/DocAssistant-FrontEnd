@@ -1,9 +1,6 @@
 import { Typography } from "@mui/material";
-import { Checklist } from "../CheckList";
-import * as styles from "../TablaConsultas/TablaConsultasStyles";
 import { ReactiveCheckBox } from "../ReactiveCheckBox";
-import { ListadoConsultas } from "./ListadoConsultas";
-import { ListadoImporte } from "./ListadoImporte";
+import * as styles from "../TablaConsultas/TablaConsultasStyles";
 
 /**
  *
