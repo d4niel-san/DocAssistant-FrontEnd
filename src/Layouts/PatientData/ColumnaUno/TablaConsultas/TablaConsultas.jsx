@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { Checklist } from "../CheckList";
-import * as styles from "../ColumnaUnoStyles";
+import * as styles from "../TablaConsultas/TablaConsultasStyles";
 import { ReactiveCheckBox } from "../ReactiveCheckBox";
 import { ListadoConsultas } from "./ListadoConsultas";
 import { ListadoImporte } from "./ListadoImporte";
@@ -16,20 +16,19 @@ import { ListadoImporte } from "./ListadoImporte";
 export const TablaConsultas = ({ consultas, paymentAbaliable }) => {
   const SubTabla = () => {
     return consultas.map((element) => (
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <div style={{ display: "flex" }}>{element.date}</div>
-        <div style={{ display: "flex" }}>{element.amount}</div>
-        <div style={{ display: "flex" }}>
+      <div style={styles.gridContainer}>
+        <div style={styles.gridA}>{element.date}</div>
+        <div style={styles.gridB}>$ {element.amount}</div>
+        <div style={styles.gridC}>
           <ReactiveCheckBox />
         </div>
       </div>
     ));
   };
 
-  return null (
-    /*<div style={{ display: "flex", flexDirection: "column" }}>
-
-      <div style={styles.tablaContainer}>
+  return (
+    <>
+      <div style={styles.gridContainer}>
         <div style={styles.gridA}>
           <Typography
             fontFamily="roboto"
@@ -51,26 +50,25 @@ export const TablaConsultas = ({ consultas, paymentAbaliable }) => {
             Paga
           </Typography>
         </div>
-
-        {/* <div style={styles.gridD}>
-        <ul style={styles.ulStyle}>
-          <ListadoConsultas consultas={consultas} />
-        </ul>
       </div>
 
-      <div style={styles.gridE}>
-        <ul style={styles.ulStyle}>
-          <ListadoImporte consultas={consultas} />
-        </ul>
-      </div>
+      <SubTabla />
 
-      <div style={styles.gridF}>
-        <Checklist consultas={consultas} paymentAbaliable={paymentAbaliable} />
-      </div> 
-      </div>
-      <div>
-        <SubTabla />
-      </div>
-    </div>*/
+      {/* <div style={styles.gridD}>
+      <ul style={styles.ulStyle}>
+        <ListadoConsultas consultas={consultas} />
+      </ul>
+    </div>
+
+    <div style={styles.gridE}>
+      <ul style={styles.ulStyle}>
+        <ListadoImporte consultas={consultas} />
+      </ul>
+    </div>
+
+    <div style={styles.gridF}>
+      <Checklist consultas={consultas} paymentAbaliable={paymentAbaliable} />
+    </div> */}
+    </>
   );
 };

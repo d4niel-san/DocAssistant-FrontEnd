@@ -1,29 +1,9 @@
-import { pink } from "@mui/material/colors";
-
-const colorSecundario = "#F6E1E6";
-
-const removeBullet = { listStyleType: "none" };
-
-const columnaUno = {
-  flexBasis: "40%",
-  position: "relative",
-  maxWidth: "250PX",
-  alignSelf: "flex-start",
-  marginTop: "10px",
-  backgroundColor: colorSecundario,
-};
 
 const gridContainer = {
-  //  bottom: "120px",
-  position: "relative",
-  paddingBottom: "100px",
   display: "grid",
-  gridTemplateColumns: "40% 40% 20%",
-  gridcemplateRows: "20% 80%",
-  gridcolumnGap: "0px",
-  gridbowGap: "0px",
-  rowGap: "2px",
-};
+  gridTemplateColumns: "3fr 2fr 1.5fr",
+  gridTemplateRows: "1fr",
+}
 
 const gridA = {
   gridArea: "1 / 1 / 2 / 2",
@@ -78,6 +58,8 @@ const gridG = {
   justifyContent: "center", */
 };
 
+const removeBullet = { listStyleType: "none" };
+
 const ulStyle = {
   align: "center",
   padding: 0,
@@ -93,23 +75,11 @@ const typoNormal = {
   lineHeight: "42px",
 };
 
-const checkBox = {
-  display: "flex",
-  align: "center",
-  justifyContent: "center",
-  color: pink[800],
-  listStyleType: "none",
-};
 
-const checked = {
-  color: pink[600],
-};
 
 export {
-  checkBox,
-  checked,
-  typoNormal,
   gridContainer,
+  typoNormal,
   gridA,
   gridB,
   gridC,
@@ -117,8 +87,7 @@ export {
   gridE,
   gridF,
   gridG,
+  ulStyle,
   removeBullet,
   typoPrimary,
-  ulStyle,
-  columnaUno,
 };
