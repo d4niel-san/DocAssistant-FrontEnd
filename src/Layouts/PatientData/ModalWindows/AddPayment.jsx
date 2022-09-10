@@ -7,10 +7,8 @@ import { ApiContext } from "../../../context/apiContext";
 import * as styles from "./AddPaymentStyles";
 
 export const AddPayment = ({ onClose, open }) => {
-  const { consultasFiltradas, consultasImpagas, cargarPago } =
-    useContext(ApiContext);
+  const { consultasImpagas, cargarPago } = useContext(ApiContext);
 
-  //const consultasImpagas = consultasFiltradas.filter((e) => !e.payed);
   if (!open) return null;
 
   return ReactDom.createPortal(

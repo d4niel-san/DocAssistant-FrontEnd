@@ -44,6 +44,7 @@ export const Context = ({ children }) => {
           navigate("/Pacient", { replace: true });
           setconsultasFiltradas(filtrarConsultas(response.data.consultas));
           setConsultasImpagas(response.data.consultas.filter((e) => !e.payed));
+          console.log("Paciente refresheado");
         }
       })
       .catch((error) => {
@@ -67,9 +68,10 @@ export const Context = ({ children }) => {
     }
     /* 
     console.log("Las consultas a modificar en Base de datos son: ", idPagos); */
-    await api.post("/pagarConsulta", idPagos).then((response) => {
+    await api.post("/pagarConsulta", consultasPagas).then((response) => {
       if (response) {
         alert("Pagos cargados");
+        refreshPacient();
       }
     });
   }
