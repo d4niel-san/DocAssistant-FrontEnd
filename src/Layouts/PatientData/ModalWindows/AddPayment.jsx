@@ -7,12 +7,8 @@ import { ApiContext } from "../../../context/apiContext";
 import * as styles from "./AddPaymentStyles";
 
 export const AddPayment = ({ onClose, open }) => {
-  const { consultasFiltradas, consultasImpagas } = useContext(ApiContext);
- 
-  function modificarHistoriaClinica() {
-    /* const consultasPagadas = consultasFiltradas.filter((e) => e.payed);
-    console.log(consultasImpagas) */
-  }
+  const { consultasFiltradas, consultasImpagas, cargarPago } =
+    useContext(ApiContext);
 
   //const consultasImpagas = consultasFiltradas.filter((e) => !e.payed);
   if (!open) return null;
@@ -26,7 +22,7 @@ export const AddPayment = ({ onClose, open }) => {
             <TablaConsultas consultas={consultasImpagas} paymentAbaliable />
           </div>
           <div style={styles.buttonRow}>
-            <SaveButton texto="Guardar" function={modificarHistoriaClinica} />
+            <SaveButton texto="Guardar" function={cargarPago} close={onClose} />
             <CloseButton texto="Cerrar" function={onClose} />
           </div>
         </div>

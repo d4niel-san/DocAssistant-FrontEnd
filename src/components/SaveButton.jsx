@@ -5,6 +5,7 @@ import SaveIcon from "@mui/icons-material/Save";
 export const SaveButton = (props) => {
   const handleClick = () => {
     props.function();
+    props.close();
   };
 
   return (

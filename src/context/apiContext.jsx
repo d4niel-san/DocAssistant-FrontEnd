@@ -10,8 +10,6 @@ export const Context = ({ children }) => {
   const [pacienteBuscado, setPacienteBuscado] = useState();
   const [consultasFiltradas, setconsultasFiltradas] = useState();
   const [consultasImpagas, setConsultasImpagas] = useState();
-
-
   const [showNavBar, setShowNavBar] = useState(true);
   let navigate = useNavigate();
 
@@ -45,7 +43,7 @@ export const Context = ({ children }) => {
           setPacienteBuscado(response.data);
           navigate("/Pacient", { replace: true });
           setconsultasFiltradas(filtrarConsultas(response.data.consultas));
-          setConsultasImpagas(response.data.consultas.filter((e) => !e.payed))
+          setConsultasImpagas(response.data.consultas.filter((e) => !e.payed));
         }
       })
       .catch((error) => {
@@ -61,9 +59,25 @@ export const Context = ({ children }) => {
     });
   }
 
+  async function cargarPago() {
+    const consultasPagas = consultasImpagas.filter((e) => e.payed === true);
+    let idPagos = [];
+    for (let index = 0; index < consultasPagas.length; index++) {
+      idPagos.push(consultasPagas[index].Id);
+    }
+    /* 
+    console.log("Las consultas a modificar en Base de datos son: ", idPagos); */
+    await api.post("/pagarConsulta", idPagos).then((response) => {
+      if (response) {
+        alert("Pagos cargados");
+      }
+    });
+  }
+
   return (
     <ApiContext.Provider
       value={{
+        cargarPago,
         addHistory,
         createPacient,
         consultasFiltradas,

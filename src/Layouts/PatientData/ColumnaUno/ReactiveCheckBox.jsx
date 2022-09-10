@@ -7,8 +7,6 @@ export const ReactiveCheckBox = (props) => {
 
   const { consultasImpagas, setConsultasImpagas } = useContext(ApiContext);
 
-  //console.log("elemento: ",date, amount, payed, Id)
-
   const handleClick = () => {
     const auxConsulta = consultasImpagas.map((e) => {
       if (e.Id === Id) {
@@ -16,11 +14,9 @@ export const ReactiveCheckBox = (props) => {
       }
       return e;
     });
-    setConsultasImpagas(auxConsulta)
+    setConsultasImpagas(auxConsulta);
     console.log(auxConsulta);
   };
 
-  return (
-    <Checkbox checked={payed} onClick={handleClick} color={"pinkMain"} />
-  );
+  return <Checkbox checked={payed} onClick={handleClick} color={"pinkMain"} />;
 };
