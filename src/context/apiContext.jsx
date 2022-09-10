@@ -62,12 +62,6 @@ export const Context = ({ children }) => {
 
   async function cargarPago() {
     const consultasPagas = consultasImpagas.filter((e) => e.payed === true);
-    let idPagos = [];
-    for (let index = 0; index < consultasPagas.length; index++) {
-      idPagos.push(consultasPagas[index].Id);
-    }
-    /* 
-    console.log("Las consultas a modificar en Base de datos son: ", idPagos); */
     await api.post("/pagarConsulta", consultasPagas).then((response) => {
       if (response) {
         alert("Pagos cargados");
