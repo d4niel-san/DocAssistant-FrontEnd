@@ -9,18 +9,12 @@ export const Avatar = {
   bgcolor: "secondary.main",
 };
 
-export const Button = {
-  mt: 3,
-  mb: 2,
+export const AddPacientText = {
+  color: "secondary.contrastText",
 };
 
 export const Container = {
   backgroundColor: "backWhite.main",
-};
-
-export const suscriptionTextSize = {
-  fontSize: 12,
-  marginTop: "1rem",
 };
 
 export const background = {
@@ -33,8 +27,4 @@ export const background = {
   display: "flex",
   alignItems: "center",
   height: "100vh",
-};
-
-export const AddPacientText = {
-  color: "secondary.contrastText",
 };

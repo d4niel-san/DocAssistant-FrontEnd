@@ -2,7 +2,7 @@
 
 import { PersonSearch } from "@mui/icons-material";
 import { Avatar, Box, Container, CssBaseline, Grid } from "@mui/material";
-import { QueryPacientForm } from "../../components/QueryPacientForm";
+import { QueryPacientForm } from "./QueryPacientForm";
 import * as styles from "./QueryPacientStyles";
 
 //#endregion

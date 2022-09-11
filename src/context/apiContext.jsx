@@ -31,10 +31,24 @@ export const Context = ({ children }) => {
       data: dni,
     };
     console.warn("Usuario: ", User);
-    searchPacient(User);
+    dataPacient(User);
   };
 
   async function searchPacient(patient) {
+    await api
+      .post("/getPaciente", patient)
+      .then((response) => {
+        if (response) {
+          console.warn("Paciente encontrado: ", response.data);
+          return response.data;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  async function dataPacient(patient) {
     await api
       .post("/getPaciente", patient)
       .then((response) => {
@@ -74,13 +88,14 @@ export const Context = ({ children }) => {
     <ApiContext.Provider
       value={{
         cargarPago,
+        searchPacient,
         addHistory,
         createPacient,
         consultasFiltradas,
         setconsultasFiltradas,
         consultasImpagas,
         setConsultasImpagas,
-        searchPacient,
+        dataPacient,
         refreshPacient,
         isUserLogged,
         setIsUserLogged,

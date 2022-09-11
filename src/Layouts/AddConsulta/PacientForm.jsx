@@ -1,23 +1,23 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { useContext, useState } from "react";
-import { Dropdown } from "./DropDown";
-import { ApiContext } from "../context/apiContext";
-import { filters } from "../Layouts/QueryPacient/filters";
-import * as styles from "./QueryPacientFormStyles";
+import { Dropdown } from "../../components/DropDown";
+import { ApiContext } from "../../context/apiContext";
+import { filters } from "../QueryPacient/filters";
+import * as styles from "./PacientFormStyles";
 
-export const QueryPacientForm = () => {
+export const PacientForm = ({ functionProp }) => {
   const { searchPacient } = useContext(ApiContext);
   const [filter, setFilter] = useState(filters[1]);
 
-  const SearchSubmit = (event) => {
+  async function SearchSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const searchUser = {
       filter: data.get("filter"),
       data: data.get("data"),
     };
-    searchPacient(searchUser);
-  };
+    functionProp(searchPacient(searchUser));
+  }
 
   const handleChange = (event) => {
     const result = filters.find(
