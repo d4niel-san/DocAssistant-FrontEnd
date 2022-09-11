@@ -11,6 +11,7 @@ export const Avatar = {
 
 export const AddPacientText = {
   color: "secondary.contrastText",
+  marginBottom: "10px",
 };
 
 export const Container = {

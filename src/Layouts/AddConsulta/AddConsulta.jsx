@@ -30,9 +30,11 @@ export const AddConsulta = () => {
     <Grid item xs={false} sm={4} md={7} sx={styles.background}>
       <Container component="main" maxWidth="sm" sx={styles.Container}>
         <CssBaseline />
-        <Typography component="h1" variant="h5" sx={styles.AddPacientText}>
-          Agregar Consulta
-        </Typography>
+        <div style={{ borderBottom: "5px solid RGB(0, 138, 122)" }}>
+          <Typography component="h1" variant="h5" sx={styles.AddPacientText}>
+            Agregar Consulta
+          </Typography>
+        </div>
         <Box sx={styles.Box}>{conditionalRender()}</Box>
       </Container>
     </Grid>
