@@ -20,7 +20,7 @@ export const listItems = [
   {
     listIcon: <AddCard />,
     listText: "Agendar Consulta",
-    navigate: "",
+    navigate: "/addConsulta",
   },
   {
     listIcon: <List />,
