@@ -14,7 +14,7 @@ export const listItems = [
   },
   {
     listIcon: <PersonSearch />,
-    listText: "Consultar Datos Paciente",
+    listText: "Buscar Paciente",
     navigate: "/queryPacient",
   },
   {

@@ -29,7 +29,7 @@ export const QueryPacientForm = () => {
   return (
     <>
       <Typography component="h1" variant="h5" sx={styles.AddPacientText}>
-        Consultar Datos Paciente
+        Buscar Paciente
       </Typography>
       <Box component="form" noValidate onSubmit={SearchSubmit} sx={{ mt: 3 }}>
         <Grid container spacing={2}>
