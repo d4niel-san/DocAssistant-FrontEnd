@@ -29,3 +29,19 @@ export const background = {
   alignItems: "center",
   height: "100vh",
 };
+
+export const gridContainer = {
+  borderBottom: "5px solid RGB(0, 138, 122)",
+  display: "grid",
+  gridTemplateColumns: "repeat(2, 1fr)",
+  gridTemplateRows: "1fr",
+  gridColumnGap: "0px",
+  gridRowGap: "0px",
+};
+
+export const gridA = { gridArea: "1 / 1 / 2 / 2" };
+export const gridB = {
+  gridArea: "1 / 2 / 2 / 3",
+  justifyContent: "end",
+  display: "flex",
+};

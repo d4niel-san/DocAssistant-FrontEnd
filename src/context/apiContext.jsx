@@ -35,17 +35,18 @@ export const Context = ({ children }) => {
   };
 
   async function searchPacient(patient) {
-    await api
+    const result = await api
       .post("/getPaciente", patient)
       .then((response) => {
         if (response) {
-          console.warn("Paciente encontrado: ", response.data);
-          return response.data;
+          console.log("Paciente encontrado: ", response.data);
         }
+        return response.data;
       })
       .catch((error) => {
         console.error(error);
       });
+    return result;
   }
 
   async function dataPacient(patient) {
@@ -53,7 +54,7 @@ export const Context = ({ children }) => {
       .post("/getPaciente", patient)
       .then((response) => {
         if (response) {
-          console.warn("Paciente encontrado: ", response.data);
+          console.log("Paciente encontrado: ", response.data);
           setPacienteBuscado(response.data);
           navigate("/Pacient", { replace: true });
           setconsultasFiltradas(filtrarConsultas(response.data.consultas));

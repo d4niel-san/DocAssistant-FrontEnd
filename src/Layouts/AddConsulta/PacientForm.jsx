@@ -5,9 +5,9 @@ import { ApiContext } from "../../context/apiContext";
 import { filters } from "../QueryPacient/filters";
 import * as styles from "./PacientFormStyles";
 
-export const PacientForm = ({ functionProp }) => {
-  const { searchPacient } = useContext(ApiContext);
+export const PacientForm = () => {
   const [filter, setFilter] = useState(filters[1]);
+  const { setPacienteBuscado, searchPacient } = useContext(ApiContext);
 
   async function SearchSubmit(event) {
     event.preventDefault();
@@ -16,7 +16,8 @@ export const PacientForm = ({ functionProp }) => {
       filter: data.get("filter"),
       data: data.get("data"),
     };
-    functionProp(searchPacient(searchUser));
+    const resultado = await searchPacient(searchUser);
+    setPacienteBuscado(resultado);
   }
 
   const handleChange = (event) => {
