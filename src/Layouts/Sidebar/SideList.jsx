@@ -9,16 +9,24 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { ApiContext } from "../../context/apiContext";
 import avatar from "./images/logo2.png";
 import { listItems } from "./ListItems";
 import * as styles from "./SideBarStyles.jsx";
 
 //#endregion
 
-export const SideList = () => (
-  <>
+export const SideList = () => {  
+  const { setPacienteBuscado } = useContext(ApiContext);
+  
+  const handleClick = () => {
+    setPacienteBuscado(null)
+  }
+
+  return (
+    <>
     <CssBaseline />
     <Box sx={styles.menuSliderContainer} component="div">
       <Avatar sx={styles.avatar} src={avatar} alt="Meliapp" />
@@ -26,11 +34,11 @@ export const SideList = () => (
       <List>
         {listItems.map((listItem, index) => (
           <Link
-            key={index}
+          key={index}
             to={listItem.navigate}
             style={{ textDecoration: "none" }}
           >
-            <ListItem button sx={styles.mouseStates}>
+            <ListItem button onClick={handleClick} sx={styles.mouseStates} >
               <ListItemIcon>{listItem.listIcon}</ListItemIcon>
               <ListItemText primary={listItem.listText} sx={styles.listItem} />
             </ListItem>
@@ -39,4 +47,5 @@ export const SideList = () => (
       </List>
     </Box>
   </>
-);
+)
+}

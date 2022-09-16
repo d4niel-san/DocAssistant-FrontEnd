@@ -14,6 +14,7 @@ import * as styles from "./AddConsultaStyles";
 import { InfoPaciente } from "./InfoPaciente";
 import { PacientForm } from "./PacientForm";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import { ConsultaForm } from "./ConsultaForm";
 
 export const AddConsulta = () => {
   const { pacienteBuscado, setPacienteBuscado } = useContext(ApiContext);
@@ -28,8 +29,8 @@ export const AddConsulta = () => {
         <CssBaseline />
         <div style={styles.gridContainer}>
           <div style={styles.gridA}>
-            <Typography component="h1" variant="h5" sx={styles.AddPacientText}>
-              Agregar Consulta
+            <Typography component="h1" variant="h5" sx={styles.typoInblock} >
+              Agregar Consulta {pacienteBuscado ? (`: ${pacienteBuscado.LastName} ${pacienteBuscado.FirstName}`) : ("")}
             </Typography>
           </div>
           <div style={styles.gridB}>
@@ -40,16 +41,19 @@ export const AddConsulta = () => {
         </div>
 
         <Box sx={styles.Box}>
-          {pacienteBuscado ? (
+        {pacienteBuscado ? (
+          <>
             <InfoPaciente />
-          ) : (
-            <>
-              <Avatar sx={styles.Avatar}>
-                <PersonSearch color="primary" />
-              </Avatar>
-              <PacientForm />
-            </>
-          )}
+              <ConsultaForm />
+          </>
+        ) : (
+          <>
+            <Avatar sx={styles.Avatar}>
+              <PersonSearch color="primary" />
+            </Avatar>
+            <PacientForm />
+          </>
+        )}
         </Box>
       </Container>
     </Grid>

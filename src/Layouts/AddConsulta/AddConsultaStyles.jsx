@@ -9,10 +9,16 @@ export const Avatar = {
   bgcolor: "secondary.main",
 };
 
+
 export const AddPacientText = {
   color: "secondary.contrastText",
   marginBottom: "10px",
 };
+
+export const typoInblock = {
+  display: "inline-block",
+  ...AddPacientText
+}
 
 export const Container = {
   backgroundColor: "backWhite.main",
