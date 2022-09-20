@@ -20,7 +20,8 @@ export const typoInblock = {
 };
 
 export const Container = {
-  backgroundColor: "backWhite.main",
+  //backgroundColor: "backWhite.main",
+  backgroundColor: "#f1f1f1",
 };
 
 export const background = {
