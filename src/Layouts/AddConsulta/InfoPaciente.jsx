@@ -8,12 +8,6 @@ export const InfoPaciente = () => {
 
   return (
     <>
-      <Typography sx={styles.text}>
-        Paciente: {pacienteBuscado.LastName}, {pacienteBuscado.FirstName}
-      </Typography>
-      <Typography sx={styles.text}>
-        Ocupacion: {pacienteBuscado.Ocupacion}
-      </Typography>
       <Typography sx={styles.text}>E-Mail: {pacienteBuscado.Email}</Typography>
       <Typography sx={styles.text}>Cell: {pacienteBuscado.Cell}</Typography>
       <Typography sx={styles.text}>DNI: {pacienteBuscado.DNI}</Typography>

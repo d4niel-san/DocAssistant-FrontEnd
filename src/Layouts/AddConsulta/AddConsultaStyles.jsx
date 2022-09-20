@@ -9,7 +9,6 @@ export const Avatar = {
   bgcolor: "secondary.main",
 };
 
-
 export const AddPacientText = {
   color: "secondary.contrastText",
   marginBottom: "10px",
@@ -17,8 +16,8 @@ export const AddPacientText = {
 
 export const typoInblock = {
   display: "inline-block",
-  ...AddPacientText
-}
+  ...AddPacientText,
+};
 
 export const Container = {
   backgroundColor: "backWhite.main",
@@ -37,7 +36,6 @@ export const background = {
 };
 
 export const gridContainer = {
-  borderBottom: "5px solid RGB(0, 138, 122)",
   display: "grid",
   gridTemplateColumns: "repeat(2, 1fr)",
   gridTemplateRows: "1fr",
@@ -50,4 +48,15 @@ export const gridB = {
   gridArea: "1 / 2 / 2 / 3",
   justifyContent: "end",
   display: "flex",
+};
+
+export const title = {
+  borderBottom: "5px solid RGB(0, 138, 122)",
+  marginBottom: "7px",
+  marginTop: "7px",
+};
+
+export const Button = {
+  mt: 3,
+  mb: 2,
 };
