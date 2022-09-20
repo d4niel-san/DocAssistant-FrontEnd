@@ -2,7 +2,6 @@ import { PersonSearch } from "@mui/icons-material";
 import {
   Avatar,
   Box,
-  Button,
   Container,
   CssBaseline,
   Grid,
@@ -11,17 +10,12 @@ import {
 import { useContext } from "react";
 import { ApiContext } from "../../context/apiContext";
 import * as styles from "./AddConsultaStyles";
+import { ConsultaForm } from "./ConsultaForm";
 import { InfoPaciente } from "./InfoPaciente";
 import { PacientForm } from "./PacientForm";
-import RefreshIcon from "@mui/icons-material/Refresh";
-import { ConsultaForm } from "./ConsultaForm";
 
 export const AddConsulta = () => {
-  const { pacienteBuscado, setPacienteBuscado } = useContext(ApiContext);
-
-  const handleChange = () => {
-    setPacienteBuscado(null);
-  };
+  const { pacienteBuscado } = useContext(ApiContext);
 
   return (
     <Grid item xs={false} sm={4} md={7} sx={styles.background}>
@@ -52,26 +46,6 @@ export const AddConsulta = () => {
             </>
           )}
         </Box>
-        {pacienteBuscado && (
-          <>
-            <div style={styles.gridContainer}>
-              <div style={styles.gridA}>
-                <Button
-                  onClick={handleChange}
-                  variant="contained"
-                  sx={styles.Button}
-                >
-                  <RefreshIcon /> Refrescar
-                </Button>
-              </div>
-              <div style={styles.gridB}>
-                <Button type="submit" variant="contained" sx={styles.Button}>
-                  Consultar Paciente
-                </Button>
-              </div>
-            </div>
-          </>
-        )}
       </Container>
     </Grid>
   );
