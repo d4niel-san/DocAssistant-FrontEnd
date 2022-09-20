@@ -6,7 +6,8 @@ export const Box = {
 
 export const Avatar = {
   m: 1,
-  bgcolor: "secondary.main",
+  //bgcolor: "secondary.main",
+  bgcolor: "primary.main",
 };
 
 export const AddPacientText = {

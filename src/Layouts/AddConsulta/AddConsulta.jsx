@@ -46,7 +46,7 @@ export const AddConsulta = () => {
           ) : (
             <>
               <Avatar sx={styles.Avatar}>
-                <PersonSearch color="primary" />
+                <PersonSearch color="#f1f1f1" />
               </Avatar>
               <PacientForm />
             </>
