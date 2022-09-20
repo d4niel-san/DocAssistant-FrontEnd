@@ -1,6 +1,6 @@
 export const CheckBox = {
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "right",
   alignItems: "center",
 };
 

@@ -1,4 +1,10 @@
-import { Button, Checkbox, Grid, TextField } from "@mui/material";
+import {
+  Button,
+  Checkbox,
+  Grid,
+  InputAdornment,
+  TextField,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import { useContext } from "react";
 import { ApiContext } from "../../context/apiContext";
@@ -6,18 +12,30 @@ import * as styles from "./ConsultaFormStyles";
 import RefreshIcon from "@mui/icons-material/Refresh";
 
 export const ConsultaForm = () => {
-  const { setPacienteBuscado } = useContext(ApiContext);
+  const { pacienteBuscado, setPacienteBuscado } = useContext(ApiContext);
 
-  const SignUpSubmit = (event) => {
+  /* 
+small datetime cast queries
+SELECT   
+     CAST('2007-05-08 12:35:29'     AS smalldatetime)  
+    ,CAST('2007-05-08 12:35:30'     AS smalldatetime)  
+    ,CAST('2007-05-08 12:59:59.998' AS smalldatetime);
+
+source: 
+dayHour: "2022-09-16T11:59"
+ */
+
+  const ConsultaSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const newConsulta = {
-      firstName: data.get("firstName"),
-      lastName: data.get("lastName"),
-      ocupacion: data.get("ocupacion"),
-      email: data.get("email"),
-      cell: data.get("cell"),
-      dni: data.get("dni"),
+      /* day: data.get("day"),
+      hour: data.get("hour"), */
+      patientId: pacienteBuscado.Id,
+      dayHour: data.get("dayHour"),
+      link: data.get("link"),
+      amount: data.get("amount"),
+      payed: data.get("payed") ? true : false,
     };
     console.log("Consulta Nueva: ", newConsulta);
   };
@@ -27,20 +45,66 @@ export const ConsultaForm = () => {
   };
 
   return (
-    <Box component="form" noValidate sx={styles.Box}>
+    <Box component="form" noValidate sx={styles.Box} onSubmit={ConsultaSubmit}>
       <Grid container spacing={1}>
-        <Grid item xs={12} sm={6}>
-          <TextField size="small" helperText="Día" type="date" fullWidth />
+        {/* <Grid item xs={12} sm={6}>
+          <TextField
+            size="small"
+            helperText="Día"
+            type="date"
+            fullWidth
+            name="day"
+          />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField size="small" helperText="Hora" type="time" fullWidth />
+          <TextField
+            size="small"
+            helperText="Hora"
+            type="time"
+            fullWidth
+            name="hour"
+          />
+        </Grid> */}
+        <Grid item xs={12} sm={6}>
+          <TextField
+            size="small"
+            label="Fecha y Hora"
+            //focused
+            fullWidth
+            type="datetime-local"
+            name="dayHour"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start"></InputAdornment>
+              ),
+            }}
+          />
         </Grid>
-        <Grid item xs={12} sm={10}>
-          <TextField size="small" label="Enlace de Reunion" fullWidth />
+        <Grid item xs={12} sm={4}>
+          <TextField
+            size="small"
+            label="Importe"
+            fullWidth
+            name="amount"
+            type="number"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">$</InputAdornment>
+              ),
+            }}
+          />
         </Grid>
         <Grid item xs={12} sm={2} sx={styles.CheckBox}>
-          <Checkbox />
+          <Checkbox name="payed" />
           Pagado
+        </Grid>
+        <Grid item xs={12} sm={12}>
+          <TextField
+            size="small"
+            label="Enlace de Reunion"
+            fullWidth
+            name="link"
+          />
         </Grid>
       </Grid>
       <div style={styles.gridContainer}>
