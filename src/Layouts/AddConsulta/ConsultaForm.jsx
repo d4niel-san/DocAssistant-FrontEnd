@@ -12,25 +12,13 @@ import * as styles from "./ConsultaFormStyles";
 import RefreshIcon from "@mui/icons-material/Refresh";
 
 export const ConsultaForm = () => {
-  const { pacienteBuscado, setPacienteBuscado } = useContext(ApiContext);
-
-  /* 
-small datetime cast queries
-SELECT   
-     CAST('2007-05-08 12:35:29'     AS smalldatetime)  
-    ,CAST('2007-05-08 12:35:30'     AS smalldatetime)  
-    ,CAST('2007-05-08 12:59:59.998' AS smalldatetime);
-
-source: 
-dayHour: "2022-09-16T11:59"
- */
+  const { pacienteBuscado, setPacienteBuscado, altaConsulta } =
+    useContext(ApiContext);
 
   const ConsultaSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const newConsulta = {
-      /* day: data.get("day"),
-      hour: data.get("hour"), */
       patientId: pacienteBuscado.Id,
       dayHour: data.get("dayHour"),
       link: data.get("link"),
@@ -38,6 +26,7 @@ dayHour: "2022-09-16T11:59"
       payed: data.get("payed") ? true : false,
     };
     console.log("Consulta Nueva: ", newConsulta);
+    altaConsulta(newConsulta);
   };
 
   const handleChange = () => {
@@ -47,24 +36,6 @@ dayHour: "2022-09-16T11:59"
   return (
     <Box component="form" noValidate sx={styles.Box} onSubmit={ConsultaSubmit}>
       <Grid container spacing={1}>
-        {/* <Grid item xs={12} sm={6}>
-          <TextField
-            size="small"
-            helperText="Día"
-            type="date"
-            fullWidth
-            name="day"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            size="small"
-            helperText="Hora"
-            type="time"
-            fullWidth
-            name="hour"
-          />
-        </Grid> */}
         <Grid item xs={12} sm={6}>
           <TextField
             size="small"
@@ -115,7 +86,7 @@ dayHour: "2022-09-16T11:59"
         </div>
         <div style={styles.gridB}>
           <Button type="submit" variant="contained" sx={styles.Button}>
-            Consultar Paciente
+            Agendar Consulta
           </Button>
         </div>
       </div>

@@ -24,6 +24,18 @@ export const Context = ({ children }) => {
       });
   }
 
+  async function altaConsulta(newConsulta) {
+    await api
+      .post("/newConsulta", newConsulta)
+      .then((response) => {
+        if (response) alert("Consulta Agregada a la base de datos");
+        setPacienteBuscado(null);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   const refreshPacient = () => {
     const dni = pacienteBuscado.DNI.replace(/\./g, "");
     const User = {
@@ -104,6 +116,7 @@ export const Context = ({ children }) => {
         setPacienteBuscado,
         showNavBar,
         setShowNavBar,
+        altaConsulta,
       }}
     >
       {children}
