@@ -6,12 +6,40 @@ import {
   TextField,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ApiContext } from "../../context/apiContext";
 import * as styles from "./ConsultaFormStyles";
+import jwt_decode from "jwt-decode";
 import RefreshIcon from "@mui/icons-material/Refresh";
 
 export const ConsultaForm = () => {
+  const { GUserLogged, setGUserLogged } = useContext(ApiContext);
+
+  //#region google login autentication
+
+  function handleCallbackResponse(response) {
+    const userObject = jwt_decode(response.credential);
+    console.log("GoogleUser: ", userObject);
+    setGUserLogged(response.credential);
+  }
+
+  useEffect(() => {
+    /* global google */
+
+    google.accounts.id.initialize({
+      client_id:
+        "1095309654407-8oqjrjf7ra6d9t1h9us9dqt9ebl4f2eq.apps.googleusercontent.com",
+      callback: handleCallbackResponse,
+    });
+
+    google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+      theme: "outline",
+      size: "large",
+    });
+  }, []);
+
+  //#endregion
+
   const { pacienteBuscado, setPacienteBuscado, altaConsulta } =
     useContext(ApiContext);
 
@@ -85,9 +113,13 @@ export const ConsultaForm = () => {
           </Button>
         </div>
         <div style={styles.gridB}>
-          <Button type="submit" variant="contained" sx={styles.Button}>
-            Agendar Consulta
-          </Button>
+          {GUserLogged ? (
+            <Button type="submit" variant="contained" sx={styles.Button}>
+              Agendar Consulta
+            </Button>
+          ) : (
+            <div id="signInDiv" />
+          )}
         </div>
       </div>
     </Box>

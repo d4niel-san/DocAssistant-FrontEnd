@@ -21,6 +21,7 @@ export const gridB = {
   gridArea: "1 / 2 / 2 / 3",
   justifyContent: "end",
   display: "flex",
+  alignItems: "center",
 };
 
 export const Button = {

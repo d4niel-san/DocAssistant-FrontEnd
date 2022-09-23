@@ -7,6 +7,7 @@ export const ApiContext = createContext(0);
 
 export const Context = ({ children }) => {
   const [isUserLogged, setIsUserLogged] = useState(false);
+  const [GUserLogged, setGUserLogged] = useState(false);
   const [pacienteBuscado, setPacienteBuscado] = useState();
   const [consultasFiltradas, setconsultasFiltradas] = useState();
   const [consultasImpagas, setConsultasImpagas] = useState();
@@ -117,6 +118,8 @@ export const Context = ({ children }) => {
         showNavBar,
         setShowNavBar,
         altaConsulta,
+        GUserLogged,
+        setGUserLogged,
       }}
     >
       {children}
