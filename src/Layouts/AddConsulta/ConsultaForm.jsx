@@ -1,3 +1,4 @@
+import RefreshIcon from "@mui/icons-material/Refresh";
 import {
   Button,
   Checkbox,
@@ -6,39 +7,13 @@ import {
   TextField,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ApiContext } from "../../context/apiContext";
+import { GoogleButton } from "../../google/google";
 import * as styles from "./ConsultaFormStyles";
-import jwt_decode from "jwt-decode";
-import RefreshIcon from "@mui/icons-material/Refresh";
 
 export const ConsultaForm = () => {
-  const { GUserLogged, setGUserLogged } = useContext(ApiContext);
-
-  //#region google login autentication
-
-  function handleCallbackResponse(response) {
-    const userObject = jwt_decode(response.credential);
-    console.log("GoogleUser: ", userObject);
-    setGUserLogged(response.credential);
-  }
-
-  useEffect(() => {
-    /* global google */
-
-    google.accounts.id.initialize({
-      client_id:
-        "1095309654407-8oqjrjf7ra6d9t1h9us9dqt9ebl4f2eq.apps.googleusercontent.com",
-      callback: handleCallbackResponse,
-    });
-
-    google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-      theme: "outline",
-      size: "large",
-    });
-  });
-
-  //#endregion
+  const { GUserLogged } = useContext(ApiContext);
 
   const { pacienteBuscado, setPacienteBuscado, altaConsulta } =
     useContext(ApiContext);
@@ -118,7 +93,7 @@ export const ConsultaForm = () => {
               Agendar Consulta
             </Button>
           ) : (
-            <div id="signInDiv" />
+            <GoogleButton />
           )}
         </div>
       </div>

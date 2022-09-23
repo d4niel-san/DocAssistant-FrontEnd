@@ -3,7 +3,7 @@ import { ApiContext } from "../context/apiContext";
 import jwt_decode from "jwt-decode";
 
 export const GoogleButton = () => {
-  const { setGUserLogged } = useContext(ApiContext);
+  const { GUserLogged, setGUserLogged } = useContext(ApiContext);
 
   function handleCallbackResponse(response) {
     const userObject = jwt_decode(response.credential);
@@ -27,5 +27,5 @@ export const GoogleButton = () => {
     });
   });
 
-  return <div id="signInDiv" />;
+  if (!GUserLogged) return <div id="signInDiv" />;
 };
