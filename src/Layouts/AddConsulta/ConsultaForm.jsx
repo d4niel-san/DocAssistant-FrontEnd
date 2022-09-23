@@ -36,7 +36,7 @@ export const ConsultaForm = () => {
       theme: "outline",
       size: "large",
     });
-  }, []);
+  });
 
   //#endregion
 

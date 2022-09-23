@@ -1,7 +1,7 @@
 // #region Imports
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { ApiContext } from "./context/apiContext";

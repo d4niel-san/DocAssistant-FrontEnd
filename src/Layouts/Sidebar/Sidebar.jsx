@@ -25,7 +25,6 @@ export const Sidebar = () => {
   return (
     <>
       <CssBaseline />
-
       <Box component="nav" sx={navBar}>
         <AppBar position="static">
           <Toolbar>

@@ -1,12 +1,20 @@
 import generalTheme from "../../theme/generalTheme";
 
-const menuSliderContainer = {
+export const gButton = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+};
+
+export const menuSliderContainer = {
   width: 250,
   backgroundColor: generalTheme.palette.primary.main,
   height: "100%",
 };
 
-const avatar = {
+export const gUser = { justifyContent: "center", display: "grid" };
+
+export const avatar = {
   margin: "0.5rem auto",
   padding: "1rem",
   width: "50%",
@@ -14,20 +22,18 @@ const avatar = {
   filter: "invert(1)",
 };
 
-const listItem = {
+export const listItem = {
   color: "primary.contrastText",
 };
 
-const navBar = {
+export const navBar = {
   backgroundColor: "primary.main",
   position: "absolute",
   width: "100%",
   zIndex: "100",
 };
 
-const mouseStates = {
+export const mouseStates = {
   "&:hover": { backgroundColor: "primary.dark" },
   "&:active": { backgroundColor: "primary.light" },
 };
-
-export { menuSliderContainer, avatar, listItem, navBar, mouseStates };
