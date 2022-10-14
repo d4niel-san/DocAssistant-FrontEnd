@@ -16,6 +16,9 @@ import { PacientForm } from "./PacientForm";
 
 export const AddConsulta = () => {
   const { pacienteBuscado } = useContext(ApiContext);
+  const { GUserLogged } = useContext(ApiContext);
+
+  const title = GUserLogged ? "Agregar Consulta " : "Google Login ";
 
   return (
     <Grid item xs={false} sm={4} md={7} sx={styles.background}>
@@ -24,7 +27,7 @@ export const AddConsulta = () => {
 
         <div style={styles.title}>
           <Typography component="h1" variant="h5" sx={styles.typoInblock}>
-            Agregar Consulta{" "}
+            {title}
             {pacienteBuscado
               ? `: ${pacienteBuscado.LastName} ${pacienteBuscado.FirstName}`
               : ""}
@@ -37,13 +40,15 @@ export const AddConsulta = () => {
               <InfoPaciente />
               <ConsultaForm />
             </>
-          ) : (
+          ) : GUserLogged ? (
             <>
               <Avatar sx={styles.Avatar}>
                 <PersonSearch color="#f1f1f1" />
               </Avatar>
               <PacientForm />
             </>
+          ) : (
+            <div style={{ padding: "20px 10px" }} id="signInDiv" />
           )}
         </Box>
       </Container>

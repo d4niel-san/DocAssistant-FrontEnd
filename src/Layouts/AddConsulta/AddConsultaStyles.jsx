@@ -23,6 +23,8 @@ export const typoInblock = {
 export const Container = {
   //backgroundColor: "backWhite.main",
   backgroundColor: "#f1f1f1",
+  padding: "25px 50px !important",
+  /* minHeight: "350px", */
 };
 
 export const background = {
