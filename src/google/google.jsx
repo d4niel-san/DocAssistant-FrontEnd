@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { ApiContext } from "../context/apiContext";
 import jwt_decode from "jwt-decode";
+import { Button } from "@mui/material";
 
 export const GoogleButton = () => {
   const { GUserLogged, setGUserLogged } = useContext(ApiContext);
@@ -14,7 +15,6 @@ export const GoogleButton = () => {
 
   useEffect(() => {
     /* global google */
-
     google.accounts.id.initialize({
       client_id:
         "1095309654407-8oqjrjf7ra6d9t1h9us9dqt9ebl4f2eq.apps.googleusercontent.com",
@@ -27,5 +27,21 @@ export const GoogleButton = () => {
     });
   });
 
-  if (!GUserLogged) return <div id="signInDiv" />;
+  return !GUserLogged ? (
+    <div id="signInDiv" />
+  ) : (
+    <Button
+      size="small"
+      variant="contained"
+      onClick={() => setGUserLogged(null)}
+      style={{
+        color: "RGB(0, 138, 122)",
+        backgroundColor: "#F6E1E6",
+        border: "none",
+        fontSize: 16,
+      }}
+    >
+      Google Sign Out
+    </Button>
+  );
 };
