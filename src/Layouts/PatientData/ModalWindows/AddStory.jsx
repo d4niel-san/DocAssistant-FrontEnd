@@ -6,8 +6,6 @@ import { Dropdown } from "../../../components/DropDown";
 import { ApiContext } from "../../../context/apiContext";
 import * as styles from "./AddStoryStyles";
 
-//defaultValue={new Date().toISOString().slice(0, 10)}
-
 export const AddStory = ({ onClose, open }) => {
   const { pacienteBuscado, addHistory, refreshPacient } =
     useContext(ApiContext); //consultasFiltradas
@@ -17,18 +15,23 @@ export const AddStory = ({ onClose, open }) => {
     consultasFiltradas[0].register
   );
   const [charactersAvaliable, setCharactersAvaliable] = useState(1500);
-  const [texto, setTexto] = useState(registroConsulta);
-
-  useMemo(() => {
-    setTexto(registroConsulta);
-  }, [registroConsulta]);
 
   const handleChange = (event) => {
     setDateConsulta(event.target.value);
-    setRegistroConsulta(
-      consultasFiltradas.filter((e) => e.date === event.target.value)[0]
-        .register
-    );
+    const registro = consultasFiltradas.filter(
+      (e) => e.date === event.target.value
+    )[0].register;
+    console.log(registro);
+    setRegistroConsulta(registro);
+    !registro && setRegistroConsulta(" ");
+    registro
+      ? setCharactersAvaliable(1500 - registro.length)
+      : setCharactersAvaliable(1500);
+  };
+
+  const textFieldChange = (event) => {
+    setCharactersAvaliable(1500 - event.target.value.length);
+    setRegistroConsulta(event.target.value);
   };
 
   if (!open) return null;
@@ -73,15 +76,12 @@ export const AddStory = ({ onClose, open }) => {
                 fullWidth
                 color={"pinkMain"}
                 defaultValue={registroConsulta}
-                value={texto}
+                value={registroConsulta}
                 minRows={7}
                 maxRows={7}
                 helperText={`caracteres restantes: ${charactersAvaliable}`}
                 focused
-                onChange={(event) => {
-                  setCharactersAvaliable(1500 - event.target.value.length);
-                  setTexto(event.target.value);
-                }}
+                onChange={textFieldChange}
                 id="historia"
                 label="Historia Clinica"
                 name="historia"

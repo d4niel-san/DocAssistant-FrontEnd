@@ -43,7 +43,6 @@ export const ConsultaForm = () => {
           <TextField
             size="small"
             label="Fecha y Hora"
-            //focused
             fullWidth
             type="datetime-local"
             name="dayHour"
@@ -54,7 +53,7 @@ export const ConsultaForm = () => {
             }}
           />
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={3.5}>
           <TextField
             size="small"
             label="Importe"
@@ -68,7 +67,7 @@ export const ConsultaForm = () => {
             }}
           />
         </Grid>
-        <Grid item xs={12} sm={2} sx={styles.CheckBox}>
+        <Grid item xs={12} sm={2.5} sx={styles.CheckBox}>
           <Checkbox name="payed" />
           Pagado
         </Grid>
