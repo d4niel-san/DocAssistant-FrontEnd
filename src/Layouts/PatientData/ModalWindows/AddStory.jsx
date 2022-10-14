@@ -36,7 +36,7 @@ export const AddStory = ({ onClose, open }) => {
 
   if (!open) return null;
 
-  const SignUpTest = (event) => {
+  const AddStoryButton = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const newHistory = {
@@ -53,7 +53,12 @@ export const AddStory = ({ onClose, open }) => {
       <div style={styles.modal}>
         <Typography align="center">Agregar Historia Clinica</Typography>
 
-        <Box component="form" noValidate onSubmit={SignUpTest} sx={{ mt: 3 }}>
+        <Box
+          component="form"
+          noValidate
+          onSubmit={AddStoryButton}
+          sx={{ mt: 3 }}
+        >
           <Grid container spacing={2}>
             <Grid item xs={6} sm={6}>
               <Dropdown

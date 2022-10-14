@@ -51,6 +51,19 @@ const div2 = {
   justifyContent: "right",
 };
 
+const modalEmptyConsultas = {
+  position: "fixed",
+  bottom: 0,
+  left: 0,
+  padding: "20px 50px",
+  borderRadius: "15px",
+  margin: "25px",
+  boxShadow: "0 20px 30px rgb(0 0 0 / 25%)",
+  background: "#DD6C8E",
+  width: "50%",
+  color: "white",
+};
+
 export {
   historiaClinicaId,
   historiaClinicaIdData,
@@ -60,4 +73,5 @@ export {
   grid,
   div1,
   div2,
+  modalEmptyConsultas,
 };

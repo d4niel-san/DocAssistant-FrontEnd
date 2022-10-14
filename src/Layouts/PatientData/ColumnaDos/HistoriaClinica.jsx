@@ -8,10 +8,17 @@ import { AddStory } from "../ModalWindows/AddStory";
 export const HistoriaClinica = () => {
   const { pacienteBuscado } = useContext(ApiContext);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  let consultasConRegistro = pacienteBuscado.consultas.filter(
+    (element) => element.register
+  );
+
+  let emptyRegistros =
+    pacienteBuscado.consultas.length - consultasConRegistro.length;
 
   const ListadoHistoriaClinica = () => {
     if (!pacienteBuscado.consultas) return null;
-    return pacienteBuscado.consultas.map((element) => (
+
+    return consultasConRegistro.map((element) => (
       <div key={element.Id}>
         <Typography>
           {element.date} : {element.register}
@@ -48,6 +55,11 @@ export const HistoriaClinica = () => {
         />
       </div>
       <AddStory open={modalIsOpen} onClose={() => setModalIsOpen(false)} />
+      {emptyRegistros && (
+        <div
+          style={styles.modalEmptyConsultas}
+        >{`Che chango faltam ${emptyRegistros} data`}</div>
+      )}
     </>
   );
 };
