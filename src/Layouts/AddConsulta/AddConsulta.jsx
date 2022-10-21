@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { useContext } from "react";
 import { ApiContext } from "../../context/apiContext";
+import { GoogleButton } from "../../google/google";
 import * as styles from "./AddConsultaStyles";
 import { ConsultaForm } from "./ConsultaForm";
 import { InfoPaciente } from "./InfoPaciente";
@@ -46,9 +47,15 @@ export const AddConsulta = () => {
                 <PersonSearch color="#f1f1f1" />
               </Avatar>
               <PacientForm />
+              {/* <button onClick={AddCalendarEvent}>hola</button> */}
+              <GoogleButton />
             </>
           ) : (
-            <div style={{ padding: "20px 10px" }} id="signInDiv" />
+            <>
+              {/* <button onClick={AddCalendarEvent}>hola</button> */}
+              <div style={{ padding: "20px 10px" }} id="signInDiv" />
+              <GoogleButton />
+            </>
           )}
         </Box>
       </Container>
