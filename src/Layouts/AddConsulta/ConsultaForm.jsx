@@ -29,6 +29,7 @@ export const ConsultaForm = () => {
     const endTime = endTimeConstructor(data.get("dayHour"));
     const newConsulta = {
       patientId: pacienteBuscado.Id,
+      patientName: `${pacienteBuscado.LastName}, ${pacienteBuscado.FirstName}`,
       dayHour: data.get("dayHour"),
       link: data.get("link"),
       amount: data.get("amount"),
@@ -36,7 +37,7 @@ export const ConsultaForm = () => {
       payed: data.get("payed") ? true : false,
     };
     console.log("Consulta Nueva: ", newConsulta);
-    //altaConsulta(newConsulta); deshabilitado para poder probar
+    altaConsulta(newConsulta);
   };
 
   const handleChange = () => {
@@ -46,7 +47,7 @@ export const ConsultaForm = () => {
   const endTimeConstructor = (startTime) => {
     const dateStartTime = new Date(startTime);
     const year = dateStartTime.getFullYear();
-    const month = dateStartTime.getMonth() + 1;
+    const month = dateStartTime.getMonth();
     const day = dateStartTime.getDate();
     let hours = dateStartTime.getHours();
     let minutes = dateStartTime.getMinutes();
@@ -55,6 +56,8 @@ export const ConsultaForm = () => {
       hours++;
       minutes += duration;
       minutes -= 60;
+    } else {
+      minutes += duration;
     }
     const endDate = new Date(year, month, day, hours, minutes, seconds, 0);
     return endDate;
