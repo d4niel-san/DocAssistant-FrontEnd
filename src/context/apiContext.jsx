@@ -8,40 +8,12 @@ export const ApiContext = createContext(0);
 export const Context = ({ children }) => {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [GUserLogged, setGUserLogged] = useState(false);
-  const [GUserToken, setGUserToken] = useState(false);
+  const [GUserCode, setGUserCode] = useState(false);
   const [pacienteBuscado, setPacienteBuscado] = useState();
   const [consultasFiltradas, setconsultasFiltradas] = useState();
   const [consultasImpagas, setConsultasImpagas] = useState();
   const [showNavBar, setShowNavBar] = useState(true);
   let navigate = useNavigate();
-
-  /* global google */
-  /*   function handleCallbackResponse(response) {
-    const userObject = jwt_decode(response.credential);
-    console.log("GoogleUser: ", userObject);
-    setGUserLogged(jwt_decode(response.credential));
-    document.getElementById("signInDiv").hidden = true;
-  }
-  useEffect(() => {
-    google.accounts.id.initialize({
-      client_id:
-        "1095309654407-8oqjrjf7ra6d9t1h9us9dqt9ebl4f2eq.apps.googleusercontent.com",
-      callback: handleCallbackResponse,
-    });
-
-    const client = google.accounts.oauth2.initTokenClient({
-      client_id:
-        "1095309654407-8oqjrjf7ra6d9t1h9us9dqt9ebl4f2eq.apps.googleusercontent.com",
-      scope: "https://www.googleapis.com/auth/calendar.readonly",
-      callback: handleCallbackResponse,
-    });
-    console.log("Client: ", client);
-
-    google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-      theme: "outline",
-      size: "large",
-    });
-  }); */
 
   async function createPacient(pacient) {
     await api
@@ -55,8 +27,9 @@ export const Context = ({ children }) => {
   }
 
   async function altaConsulta(newConsulta) {
+    console.log({ newConsulta, GUserLogged, GUserCode });
     await api
-      .post("/newConsulta", newConsulta)
+      .post("/newConsulta", { newConsulta, GUserLogged, GUserCode })
       .then((response) => {
         if (response) alert("Consulta Agregada a la base de datos");
         setPacienteBuscado(null);
@@ -149,8 +122,8 @@ export const Context = ({ children }) => {
         altaConsulta,
         GUserLogged,
         setGUserLogged,
-        GUserToken,
-        setGUserToken,
+        GUserCode,
+        setGUserCode,
       }}
     >
       {children}

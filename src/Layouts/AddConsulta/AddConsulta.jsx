@@ -47,12 +47,10 @@ export const AddConsulta = () => {
                 <PersonSearch color="#f1f1f1" />
               </Avatar>
               <PacientForm />
-              {/* <button onClick={AddCalendarEvent}>hola</button> */}
               <GoogleButton />
             </>
           ) : (
             <>
-              {/* <button onClick={AddCalendarEvent}>hola</button> */}
               <div style={{ padding: "20px 10px" }} id="signInDiv" />
               <GoogleButton />
             </>
