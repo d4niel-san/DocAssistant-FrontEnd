@@ -36,7 +36,7 @@ export const SideList = () => {
               src={GUserLogged.picture}
               alt=""
               style={{ justifySelf: "center" }}
-            ></img>
+            />
             <h3>{GUserLogged.name}</h3>
           </div>
         ) : (

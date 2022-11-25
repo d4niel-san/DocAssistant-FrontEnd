@@ -1,5 +1,5 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useState } from "react";
 import ReactDom from "react-dom";
 import CloseButton from "../../../components/CloseButton";
 import { Dropdown } from "../../../components/DropDown";
@@ -10,9 +10,9 @@ export const AddStory = ({ onClose, open }) => {
   const { pacienteBuscado, addHistory, refreshPacient } =
     useContext(ApiContext); //consultasFiltradas
   const consultasFiltradas = pacienteBuscado.consultas;
-  const [dateConsulta, setDateConsulta] = useState(consultasFiltradas[0].date);
+  const [dateConsulta, setDateConsulta] = useState(consultasFiltradas[0] ? consultasFiltradas[0].date : null);
   const [registroConsulta, setRegistroConsulta] = useState(
-    consultasFiltradas[0].register
+    consultasFiltradas[0] ? consultasFiltradas[0].register : null
   );
   const [charactersAvaliable, setCharactersAvaliable] = useState(1500);
 
