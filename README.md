@@ -1,6 +1,8 @@
 # Web App DocAssistant - FrontEnd
 
-Aplicacion desarrollada para el Final de "Seminario" 
+Aplicacion Web desarrollada para profesionales de la salud (Nutricionista), 
+
+Presentada como proyecto final de la materia "Seminario" 
 
 Tecnologias utilizadas:
 
