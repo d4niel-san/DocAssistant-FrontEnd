@@ -1,6 +1,6 @@
 # Web App DocAssistant - FrontEnd
 
-Aplicacion Web desarrollada para profesionales de la salud (Nutricionista), 
+Aplicacion Web desarrollada para llevar la agenda e historia clinica de pacientes para profesionales de la salud (Nutricionista), 
 
 Presentada como proyecto final de la materia "Seminario" 
 
@@ -9,7 +9,8 @@ Tecnologias utilizadas:
 - JavaScript
 - React
 - Material UI
-- Unsplash
+- Unsplash API
+- Google Calendar API
 
 ![image](https://user-images.githubusercontent.com/91570360/214316013-da277a38-b096-4519-82c8-23472bf81aff.png)
 ![image](https://user-images.githubusercontent.com/91570360/214315051-e68985b1-1d20-45f0-b675-c1899f562b6b.png)
