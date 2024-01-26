@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/DocAssistant-FrontEnd/static/css/main.d72ae45e.css",
+    "main.js": "/DocAssistant-FrontEnd/static/js/main.337fc35b.js",
+    "index.html": "/DocAssistant-FrontEnd/index.html",
+    "main.d72ae45e.css.map": "/DocAssistant-FrontEnd/static/css/main.d72ae45e.css.map",
+    "main.337fc35b.js.map": "/DocAssistant-FrontEnd/static/js/main.337fc35b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d72ae45e.css",
+    "static/js/main.337fc35b.js"
+  ]
+}
